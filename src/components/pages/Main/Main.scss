@@ -1,0 +1,59 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1120px;
+    margin: 0 auto;
+    margin-top: 65px;
+
+    .header {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .header-title-logo {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 14.5px;
+
+            .title {
+                h1 {
+                    font-family: 'Inter', sans-serif;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 36px;
+                    padding: 30px 0;
+                    line-height: 100%;
+                }
+            }
+
+            .logo {
+                width: 74.25px;
+                height: 61.5px;
+                padding: 17.25px 11.25px;
+                background-image: url(../../../assets/svg/NASA_logo.svg);
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+
+        .header-description {
+            h2 {
+                font-family: 'Inter';
+                font-style: normal;
+                font-weight: 800;
+                font-size: 60px;
+                line-height: 100%;
+
+                text-align: center;
+
+                background: linear-gradient(0deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.56)), linear-gradient(45deg, #14AFFC 0%, #7F23F7 48.96%, #FC19AD 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                // text-fill-color: transparent;
+            }
+        }
+    }
+}
