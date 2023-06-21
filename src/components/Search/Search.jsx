@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useState } from "react";
+import { Context } from "../../Context.jsx";
 
 import { Input, Button } from "@mui/joy";
 import SearchIcon from '@mui/icons-material/Search';
@@ -6,8 +7,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import  "./Search.scss";
 
 export const Search = () => {
+
+  const {setSearch} = useContext(Context);
+  const [value, setValue] = useState('');
+
   return (
       <Input
+        onChange={e => setValue(e.target.value)}
+        value={value}
         style={
           {
             background: 'transparent',
@@ -27,13 +34,14 @@ export const Search = () => {
         }
         placeholder="Type in here…"
         endDecorator={
-          <Button
-            style={{
-              background: 'none',
-            }}
-          >
-            <SearchIcon/>
-          </Button>}
+            <Button
+              onClick={() => setSearch(value)}
+              style={{
+                background: 'none',
+              }}>
+              <SearchIcon/>
+            </Button>
+          }
       />
   )
 }

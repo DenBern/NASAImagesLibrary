@@ -1,9 +1,11 @@
 import React from 'react';
+import { Search } from '../../Search/Search.jsx';
+import { Results } from '../../Results/Results.jsx';
 
 import "./Main.scss";
-import { Search } from '../../Search/Search.jsx';
 
 export const Main = () => {
+
     return (
         <div className="wrapper">
             <header className="header">
@@ -25,6 +27,7 @@ export const Main = () => {
                     <Search/>
                 </div>
             </header>
+            <Results />
         </div>
     )
 }
