@@ -36,7 +36,7 @@ export const useNASAService = () => {
     return {
         getItems, 
         items, 
-        totalSearch, 
+        totalSearch,
         currentYear, 
         getDetails, 
         image

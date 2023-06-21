@@ -1,6 +1,6 @@
 import React from 'react';
 import { Search } from '../../Search/Search.jsx';
-import { Results } from '../../Results/Results.jsx';
+import { Gallery } from '../../Gallery/Gallery.jsx';
 
 import "./Main.scss";
 
@@ -27,7 +27,7 @@ export const Main = () => {
                     <Search/>
                 </div>
             </header>
-            <Results />
+            <Gallery />
         </div>
     )
 }
