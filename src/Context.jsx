@@ -8,6 +8,7 @@ export const MainContext = () => {
     const [search, setSearch] = useState('');
     const [yearStart, setYearStart] = useState('');
     const [yearEnd, setYearEnd] = useState('');
+    const [pageSize, setPageSize] = useState(12);
 
     return (
         <Context.Provider
@@ -19,6 +20,7 @@ export const MainContext = () => {
                 setYearStart,
                 yearEnd,
                 setYearEnd,
+                pageSize,
             }}
         >
             <Main />
