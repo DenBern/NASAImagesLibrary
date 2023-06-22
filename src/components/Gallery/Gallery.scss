@@ -1,16 +1,32 @@
-.results {
-  font-size: 24px;
-  font-family: Inter;
-  font-weight: 500;
-  line-height: 100%;
-  padding: 24px 0;
-}
-
-.cards {
+.gallery {
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 32px;
-  justify-content: center;
-  padding: 20px 0;
+  flex-direction: column;
+  gap: 24px;
+  .results {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 24px;
+    font-family: Inter;
+    font-weight: 500;
+    line-height: 100%;
+    padding: 0px 10px;
+
+    .size-cards {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+
+      font-size: 18px;
+    }
+  }
+
+  .cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+    justify-content: center;
+  }
 }

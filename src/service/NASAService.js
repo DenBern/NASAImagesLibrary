@@ -17,8 +17,8 @@ export const useNASAService = () => {
         return await res.json();
     }
 
-    const getItems = (search = '', page = 1, yearStart = 1, yearEnd = currentYear ) => {
-        getData(`${URL}${search}&page=${page}&page_size=${12}&media_type=image&year_start=${yearStart}&year_end=${yearEnd}`)
+    const getItems = (search = 'space', page = 1, pageSize = 12, yearStart = 1, yearEnd = currentYear ) => {
+        getData(`${URL}${search}&page=${page}&page_size=${pageSize}&media_type=image&year_start=${yearStart}&year_end=${yearEnd}`)
             .then(res => {
                 setItems(res.collection.items)
                 setTotalSearch(res.collection.metadata.total_hits)
