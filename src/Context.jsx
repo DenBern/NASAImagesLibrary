@@ -9,7 +9,7 @@ export const MainContext = () => {
     const [search, setSearch] = useState('space');
     const [yearStart, setYearStart] = useState(1);
     const [yearEnd, setYearEnd] = useState(currentYear);
-    const [pageSize, setPageSize] = useState(12);
+    const [pageSize, setPageSize] = useState(10);
     const [page, setPage] = useState(1);
 
     return (

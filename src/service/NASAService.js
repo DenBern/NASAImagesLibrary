@@ -17,14 +17,13 @@ export const useNASAService = () => {
         return await res.json();
     }
 
-    const getItems = (search = 'space', page = 1, pageSize = 12, yearStart = 1, yearEnd = currentYear ) => {
-        getData(`${URL}${search}&page=${page}&page_size=${pageSize}&media_type=image&year_start=${yearStart}&year_end=${yearEnd}`)
+    const getItems = (search = 'space', page = 1, pageSize = 10) => {
+        getData(`${URL}${search}&page=${page}&page_size=${pageSize}&media_type=image`)
             .then(res => {
                 setItems(res.collection.items)
                 setTotalSearch(res.collection.metadata.total_hits)
             })
     }
-
 
     const getDetails = (id) => {
         getData(`https://images-api.nasa.gov/asset/${id}`)
