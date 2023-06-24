@@ -3,6 +3,7 @@ import { Search } from '../../Search/Search.jsx';
 import { Gallery } from '../../Gallery/Gallery.jsx';
 
 import "./Main.scss";
+import { PlanetsButtons } from '../../PlanetsButtons/PlanetsButton.jsx';
 
 export const Main = () => {
 
@@ -23,9 +24,10 @@ export const Main = () => {
                         and explore our vast file library!
                     </span>
                 </div>
-                <div className="search">
+                <div className="search-buttons">
                     <Search/>
                 </div>
+                <PlanetsButtons/>
             </header>
             <Gallery />
         </div>

@@ -1,13 +1,12 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../Context.jsx";
 import { Card } from "./Card/Card.jsx";
 import { Divider } from "../Divider/Divider.jsx";
 import { useNASAService } from "../../service/NASAService.js";
 
-import { Select, MenuItem, Pagination, InputLabel} from "@mui/material";
+import { Select, MenuItem, Pagination, Button} from "@mui/material";
 
 import "./Gallery.scss";
-import { FormControl } from "@mui/joy";
 
 export const Gallery = () => {
 
@@ -34,15 +33,9 @@ export const Gallery = () => {
         <>
             <section className="gallery">
                 <div className="results">
-                    <p>
+                    <p className="result-text">
                         Results for <b>{search.toUpperCase()}</b>
                     </p>
-                    <div className="wrapper-buttons">
-                        Solar system planets
-                        <div className="buttons">
-
-                        </div>
-                    </div>
                     <div className="size-cards">
                         <p>Page size</p>
                         <Select
