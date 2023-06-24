@@ -4,19 +4,27 @@ import { Card } from "./Card/Card.jsx";
 import { Divider } from "../Divider/Divider.jsx";
 import { useNASAService } from "../../service/NASAService.js";
 
-import { Select, MenuItem, Pagination } from "@mui/material";
+import { Select, MenuItem, Pagination, InputLabel} from "@mui/material";
 
 import "./Gallery.scss";
+import { FormControl } from "@mui/joy";
 
 export const Gallery = () => {
 
-    const{search, page, setPage, pageSize, setPageSize} = useContext(Context);
+    const{search, setSearch, page, setPage, pageSize, setPageSize} = useContext(Context);
     const{getItems, items, totalSearch} = useNASAService();
     const maxAPILimit = 10000;
     const pages = totalSearch > maxAPILimit ? Math.ceil(maxAPILimit / pageSize ) : Math.ceil(totalSearch / pageSize);
-    const handleChange = (e) => {
+
+    const handleChangeSize = (e) => {
+        setPage(1)
         setPageSize(e.target.value);
     };
+
+    const handleChangePlanet = (e) => {
+        setPage(1);
+        setSearch(e.target.value);
+    }
 
     useEffect(() => {
         getItems(search, page, pageSize);
@@ -26,14 +34,22 @@ export const Gallery = () => {
         <>
             <section className="gallery">
                 <div className="results">
-                    <p>Results for <b>{search.toUpperCase()}</b></p>
+                    <p>
+                        Results for <b>{search.toUpperCase()}</b>
+                    </p>
+                    <div className="wrapper-buttons">
+                        Solar system planets
+                        <div className="buttons">
+
+                        </div>
+                    </div>
                     <div className="size-cards">
                         <p>Page size</p>
                         <Select
                             labelId="demo-simple-select-label"
                             id="demo-simple-select"
                             value={pageSize}
-                            onChange={handleChange}
+                            onChange={handleChangeSize}
                             style={
                                 {
                                     color: '#fff',

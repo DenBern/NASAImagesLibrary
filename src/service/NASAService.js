@@ -20,15 +20,15 @@ export const useNASAService = () => {
     const getItems = (search = 'space', page = 1, pageSize = 10) => {
         getData(`${URL}${search}&page=${page}&page_size=${pageSize}&media_type=image`)
             .then(res => {
-                setItems(res.collection.items)
-                setTotalSearch(res.collection.metadata.total_hits)
+                setItems(res.collection.items);
+                setTotalSearch(res.collection.metadata.total_hits);
             })
     }
 
     const getDetails = (id) => {
         getData(`https://images-api.nasa.gov/asset/${id}`)
             .then(res => {
-                setImage(res.collection.items[1].href)
+                setImage(res.collection.items[1].href);
             })
     }
 
