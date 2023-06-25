@@ -1,5 +1,18 @@
 .planets-button {
-  width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+
+  width: 100%;
+  padding: 10px;
+
+  .buttons {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+  }
 }

@@ -4,14 +4,22 @@ import { Card } from "./Card/Card.jsx";
 import { Divider } from "../Divider/Divider.jsx";
 import { useNASAService } from "../../service/NASAService.js";
 
-import { Select, MenuItem, Pagination, Button} from "@mui/material";
+import { Select, MenuItem, Pagination} from "@mui/material";
 
 import "./Gallery.scss";
+import { DateFilter } from "../DateFilter/DateFilter.jsx";
 
 export const Gallery = () => {
 
-    const{search, setSearch, page, setPage, pageSize, setPageSize} = useContext(Context);
+    const{
+        search, 
+        page, 
+        setPage, 
+        pageSize, 
+        setPageSize} = useContext(Context);
+
     const{getItems, items, totalSearch} = useNASAService();
+
     const maxAPILimit = 10000;
     const pages = totalSearch > maxAPILimit ? Math.ceil(maxAPILimit / pageSize ) : Math.ceil(totalSearch / pageSize);
 
@@ -19,11 +27,6 @@ export const Gallery = () => {
         setPage(1)
         setPageSize(e.target.value);
     };
-
-    const handleChangePlanet = (e) => {
-        setPage(1);
-        setSearch(e.target.value);
-    }
 
     useEffect(() => {
         getItems(search, page, pageSize);
@@ -36,6 +39,7 @@ export const Gallery = () => {
                     <p className="result-text">
                         Results for <b>{search.toUpperCase()}</b>
                     </p>
+                    <DateFilter/>
                     <div className="size-cards">
                         <p>Page size</p>
                         <Select

@@ -24,7 +24,7 @@ export const Main = () => {
                         and explore our vast file library!
                     </span>
                 </div>
-                <div className="search-buttons">
+                <div className="search">
                     <Search/>
                 </div>
                 <PlanetsButtons/>

@@ -12,6 +12,7 @@
         align-items: center;
         gap: 16px;
         margin: 0 auto;
+        padding-bottom: 32px;
 
         .title-logo {
             display: flex;
@@ -59,14 +60,6 @@
                 -webkit-text-fill-color: transparent;
                 background-clip: text;
             }
-        }
-
-        .search-buttons {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-top: 32px;
-            padding-bottom: 32px;
         }
     }
 }

@@ -1,15 +1,33 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import { Button } from "@mui/joy";
 import { planets } from "../../variables/variables.js";
 
 import "./PlanetsButtons.scss";
+import { Context } from "../../Context.jsx";
 
 export const PlanetsButtons = () => {
 
+  const {page, setSearch, setPage, defaultSearch} = useContext(Context);
   const [activeButton, setActiveButton] = useState(false);
 
+  const handleChangeButton = (activeButton) => {
+    if (!activeButton) {
+      setActiveButton(!activeButton);
+      setPage(1);
+    } else {
+      setActiveButton(!activeButton);
+    }
+  }
+
+  const handleChangePlanet = (planet) => {
+    if (page !== 1) {
+      setPage(1);
+    }
+    setSearch(planet.toLowerCase());
+  }
+
   return (
-    <div className="wrapper-buttons">
+    <div className="planets-button">
       <Button variant="contained"
         style={
             {
@@ -17,16 +35,16 @@ export const PlanetsButtons = () => {
                 background: '#312E81',
             }
         }
-        onClick={() => setActiveButton(!activeButton)}
+        onClick={() => handleChangeButton(activeButton)}
       >
           Solar system planets
       </Button>
-      <div className="planets-button"
+      <div className="buttons"
         style={{
             display: `${activeButton ? 'flex' : 'none'}`,
         }}
       >
-          {planets.map((item, index) => {
+          {planets.map((planet, index) => {
             return (
               <div 
                 className="wrapper-btn"
@@ -34,18 +52,18 @@ export const PlanetsButtons = () => {
                 <Button
                   style={
                       {
-                          padding: '0',
+                          padding: '10px',
                           color: '#fff'
                       }
                   }
-                  onClick={(e) => console.log(e.target)}
+                  onClick={() => handleChangePlanet(planet)}
                 >
-                  {item}
+                  {planet}
                 </Button>
               </div>
             )
           })}
       </div>
-                    </div>
+    </div>
   )
 }

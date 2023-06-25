@@ -4,9 +4,9 @@ import { Main } from "./components/pages/Main/Main.jsx";
 export const Context = React.createContext();
 
 export const MainContext = () => {
-
+    const defaultSearch = 'space';
     const currentYear = new Date().getFullYear();
-    const [search, setSearch] = useState('space');
+    const [search, setSearch] = useState(defaultSearch);
     const [yearStart, setYearStart] = useState(1);
     const [yearEnd, setYearEnd] = useState(currentYear);
     const [pageSize, setPageSize] = useState(10);
@@ -26,6 +26,7 @@ export const MainContext = () => {
                 setPageSize,
                 page,
                 setPage,
+                defaultSearch,
             }}
         >
             <Main />
