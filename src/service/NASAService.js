@@ -25,6 +25,15 @@ export const useNASAService = () => {
             })
     }
 
+    const getItemsWithFilters = (search = 'space', page = 1, pageSize = 10, yearStart, yearEnd) => {
+        getData(`${URL}${search}&page=${page}&page_size=${pageSize}&media_type=image&year_start=${yearStart}&year_end=${yearEnd}`)
+        .then(res => {
+            setItems(res.collection.items);
+            setTotalSearch(res.collection.metadata.total_hits);
+        })
+    }
+
+
     const getDetails = (id) => {
         getData(`https://images-api.nasa.gov/asset/${id}`)
             .then(res => {
@@ -33,7 +42,8 @@ export const useNASAService = () => {
     }
 
     return {
-        getItems, 
+        getItems,
+        getItemsWithFilters,
         items, 
         totalSearch,
         currentYear, 

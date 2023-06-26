@@ -16,21 +16,30 @@ export const Gallery = () => {
         page, 
         setPage, 
         pageSize, 
-        setPageSize} = useContext(Context);
+        setPageSize,
+        yearStart,
+        yearEnd,
+    } = useContext(Context);
 
-    const{getItems, items, totalSearch} = useNASAService();
+    const{getItems, getItemsWithFilters, items, totalSearch} = useNASAService();
 
     const maxAPILimit = 10000;
-    const pages = totalSearch > maxAPILimit ? Math.ceil(maxAPILimit / pageSize ) : Math.ceil(totalSearch / pageSize);
+    const pages = totalSearch > maxAPILimit 
+        ? Math.ceil(maxAPILimit / pageSize ) 
+        : Math.ceil(totalSearch / pageSize);
 
     const handleChangeSize = (e) => {
-        setPage(1)
+        setPage(1);
         setPageSize(e.target.value);
     };
 
     useEffect(() => {
-        getItems(search, page, pageSize);
-    }, [search, pageSize, page]);
+        if(!yearStart || !yearEnd) {
+            getItemsWithFilters(search, page, pageSize, yearStart, yearEnd);
+        } else {
+            getItems(search, page, pageSize);
+        }
+    }, [search, pageSize, page, yearStart, yearEnd]);
 
     return (
         <>
