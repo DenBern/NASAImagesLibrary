@@ -7,8 +7,8 @@ export const MainContext = () => {
     const defaultSearch = 'space';
     const currentYear = new Date().getFullYear();
     const [search, setSearch] = useState(defaultSearch);
-    const [yearStart, setYearStart] = useState(1);
-    const [yearEnd, setYearEnd] = useState(currentYear);
+    const [yearStart, setYearStart] = useState();
+    const [yearEnd, setYearEnd] = useState();
     const [pageSize, setPageSize] = useState(10);
     const [page, setPage] = useState(1);
 

@@ -1,8 +1,20 @@
 .date-filter {
   display: flex;
   flex-direction: row;
-  gap: 5px;
-  padding: 5px;
+  gap: 10px;
+  padding: 15px;
   border: 1px solid #fff;
-  border-radius: 12px;
+
+
+
+  .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root,
+  .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root,
+  .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
+  .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+    color: #fff;
+  }
+
+  .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    max-width: 130px;
+  }
 }

@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Context } from "../../Context.jsx";
 
 import { Input, Button } from "@mui/joy";
-import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from "@mui/icons-material/Search";
 
 import  "./Search.scss";
 
