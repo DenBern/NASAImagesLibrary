@@ -9,20 +9,23 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
 
 import "./DateFilter.scss";
+import { setYear } from "date-fns";
 
 export const DateFilter = () => {
 
   const [startYear, setStartYear] = useState();
   const [endYear, setEndYear] = useState();
 
-  const {search, setYearStart} = useContext(Context);
-
-
+  const {yearStart, yearEnd, setYearStart, setYearEnd} = useContext(Context);
   const currentYear = dayjs(new Date()).format('YYYY');;
 
   return (
     <div className="date-filter">
       <Button 
+        onClick={() => {
+          setYearStart();
+          setYearEnd();
+        }}
         style={{
           width: '50px',
           height: '50px',
@@ -42,7 +45,11 @@ export const DateFilter = () => {
           onChange={(value) => setEndYear(value.$y)}
         />
       </LocalizationProvider>
-      <Button 
+      <Button
+        onClick={() => {
+          setYearStart(startYear);
+          setYearEnd(endYear);
+        }}
         style={{
           width: '50px',
           height: '50px',

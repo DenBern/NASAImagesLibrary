@@ -34,7 +34,7 @@ export const Gallery = () => {
     };
 
     useEffect(() => {
-        if(!yearStart || !yearEnd) {
+        if(yearStart || yearEnd) {
             getItemsWithFilters(search, page, pageSize, yearStart, yearEnd);
         } else {
             getItems(search, page, pageSize);

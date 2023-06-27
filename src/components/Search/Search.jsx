@@ -8,7 +8,7 @@ import  "./Search.scss";
 
 export const Search = () => {
 
-  const {setSearch} = useContext(Context);
+  const {setSearch, defaultSearch} = useContext(Context);
   const [value, setValue] = useState('');
 
   return (
@@ -35,7 +35,7 @@ export const Search = () => {
         placeholder="Type in here…"
         endDecorator={
             <Button
-              onClick={() => setSearch(value)}
+              onClick={() => setSearch(value === '' ? defaultSearch : value)}
               style={{
                 background: 'none',
               }}>
