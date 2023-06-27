@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import { Main } from "./components/pages/Main/Main.jsx";
+import { useNASAService } from "./service/NASAService.js";
+import { Details } from "./components/pages/Details/Details.jsx";
 
 export const Context = React.createContext();
 
@@ -29,7 +31,7 @@ export const MainContext = () => {
                 defaultSearch,
             }}
         >
-            <Main />
+            <Main/>
         </Context.Provider>
     )
 }

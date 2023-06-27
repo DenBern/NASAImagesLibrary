@@ -37,7 +37,7 @@ export const useNASAService = () => {
     const getDetails = (id) => {
         getData(`https://images-api.nasa.gov/asset/${id}`)
             .then(res => {
-                setImage(res.collection.items[1].href);
+                setImage(res.collection.items[0]);
             })
     }
 
@@ -48,6 +48,6 @@ export const useNASAService = () => {
         totalSearch,
         currentYear, 
         getDetails, 
-        image
+        image,
     }
 }

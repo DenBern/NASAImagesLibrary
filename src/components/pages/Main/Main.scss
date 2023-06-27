@@ -1,9 +1,8 @@
-.wrapper {
+.container {
     display: flex;
     flex-direction: column;
     max-width: 1120px;
     margin: 0 auto;
-    margin-top: 65px;
 
     .header {
         max-width: 1022px;
@@ -12,7 +11,7 @@
         align-items: center;
         gap: 16px;
         margin: 0 auto;
-        padding-bottom: 32px;
+        padding: 65px 0 32px 0;
 
         .title-logo {
             display: flex;
