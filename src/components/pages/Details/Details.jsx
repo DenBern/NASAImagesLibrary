@@ -5,14 +5,12 @@ import { useNASAService } from "../../../service/NASAService";
 export const Details = () => {
 
   const {id} = useParams();
-  const{getItems, items, getDetails} = useNASAService();
+  const{getDescId, metaData, getImage} = useNASAService();
 
   useEffect(() => {
-    getDetails(id);
-    getItems();
-  }, [id])
-
-  console.log(items)
+    getImage(id);
+    getDescId(id);
+  }, [id]);
 
   return (
     <div className="id">
