@@ -1,3 +1,135 @@
-.id {
+.wrapper-details {
+  width: 100%;
   background: #312E81;
+
+  .container-details {
+    max-width: 1376px;
+    margin: 0 auto;
+
+    header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .title-details {
+        display: flex;
+        flex-direction: row;
+
+        h3 {
+          font-family: 'Inter', sans-serif;
+          font-size: 18px;
+          font-family: Inter;
+          font-weight: 500;
+          line-height: 20px;
+          color: #fff;
+          padding: 27px 0 27px 0;
+          text-transform: uppercase;
+        }
+
+        hr {
+          width: 1px;
+          height: 74px;
+          border-top-color: #818CF8;
+          border-right-color: #818CF8;
+          border-bottom-color: #818CF8;
+          border-left-color: #818CF8;
+          background-color: #818CF8;
+        }
+    }
+    }
+
+    main {
+      font-family: 'Inter', sans-serif;
+
+      display: flex;
+      flex-direction: row;
+      padding-top: 32px;
+      gap: 24px;
+      color: #fff;
+
+      h4 {
+        font-size: 16px;
+        font-family: Inter;
+        font-weight: 500;
+        line-height: 24px;
+      }
+
+      p {
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        font-family: Inter;
+        font-weight: 500;
+        line-height: 20px;
+      }
+
+      .img-keywords {
+        display: flex;
+        flex-direction: column;
+
+        .image {
+          width: 920px;
+          height: 600px;
+          border-radius: 11.335px;
+          object-fit: cover;
+        }
+
+        .wrapper-keywords {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: wrap;
+          gap: 15px;
+          width: 50%;
+          padding: 20px;
+
+          .keywords {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 70%;
+
+            .keyword {
+              border: 1px solid #fff;
+              padding: 5px;
+            }
+          }
+        }
+      }
+
+      .metadata {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+
+          .photographer, 
+          .date-created {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+          }
+
+          h5 {
+            font-size: 14px;
+            font-family: Inter;
+            font-weight: 500;
+            line-height: 20px;
+            color: #D1D5DB;
+          }
+
+          .wrapper-description {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            padding-top: 10px;
+            
+              .description {
+                font-size: 16px;
+                gap: 15px;
+                max-width: 400px;
+              }
+          }
+      }
+    }
+  }
 }

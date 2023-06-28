@@ -38,7 +38,7 @@ export const useNASAService = () => {
     const getImage = async (id) => {
         await getData(`https://images-api.nasa.gov/asset/${id}`)
             .then(res => {
-                setImage(res.collection.items[0]);
+                setImage(res.collection.items[0].href);
             })
     }
 
@@ -46,7 +46,6 @@ export const useNASAService = () => {
         await getData(`https://images-api.nasa.gov/metadata/${id}`)
         .then(res => getData(res.location))
         .then(obj => {
-            console.log(obj)
             setMetaData({
                 title: obj['AVAIL:Title'],
                 location: obj['AVAIL:Location'],
