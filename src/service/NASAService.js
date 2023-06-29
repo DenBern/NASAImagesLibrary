@@ -50,6 +50,7 @@ export const useNASAService = () => {
                 title: obj['AVAIL:Title'],
                 location: obj['AVAIL:Location'],
                 photographer: obj['AVAIL:Photographer'],
+                secondaryCreator: obj['AVAIL:SecondaryCreator'],
                 description: obj['AVAIL:Description'],
                 keywords: obj['AVAIL:Keywords'],
                 date: obj['AVAIL:DateCreated'],

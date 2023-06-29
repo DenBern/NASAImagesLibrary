@@ -1,7 +1,9 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { useNASAService } from "../../../service/NASAService";
 import { Divider } from "../../Divider/Divider.jsx";
+import { Button } from "@mui/material";
+import ReplyIcon from '@mui/icons-material/Reply';
 
 import "./Details.scss";
 
@@ -17,20 +19,25 @@ export const Details = () => {
 
   return (
     <div className="wrapper-details">
-      <div className="container-details">
       {!metaData 
         ? 'Loading' 
         : (
             <>
+            <div className="wrapper-header">
               <header>
                 <div className="title-details">
                   <h3>{metaData.title}</h3>
                 </div>
                 <div className="button-back">
-                  <hr/>
+                  <Button
+                    startIcon={<ReplyIcon/>}>
+                    Back
+                  </Button>
                 </div>
               </header>
-              <Divider/>
+            </div>
+            <Divider/>
+            <div className="wrapper-main">
               <main>
                 <section className="img-keywords">
                   <img
@@ -38,16 +45,31 @@ export const Details = () => {
                     src={image} 
                     alt={metaData.title}
                   />
+                  {/* <div 
+                    style={
+                      {
+                        background: `url(${image})`,
+                        backgroundRepeat: 'no-repeat',
+                        backgroundSize: 'contain',
+                        width: '920px',
+                        height: '600px',
+                      }
+                    }
+                    className="imgf"
+
+                  /> */}
                   <div className="wrapper-keywords">
                     <h4>Keywords:</h4>
                     <div className="keywords">
                       {metaData.keywords.map((item, index) => {
-                        return <p 
-                                  className="keyword"
-                                  key={index}>
-                                  {item}
-                                </p>
-                      })}
+                        return (
+                          <p 
+                            className="keyword"
+                            key={index}>
+                            {item}
+                          </p>
+                        )})
+                      }
                     </div>
                   </div>
                 </section>
@@ -56,7 +78,7 @@ export const Details = () => {
                   <Divider/>
                   <div className="photographer">
                     <h5>Created by</h5>
-                    <p>{metaData.location}</p>
+                    <p>{metaData.photographer === '' ?  metaData.secondaryCreator : metaData.photographer}</p>
                   </div>
                   <Divider/>
                   <div className="date-created">
@@ -72,11 +94,10 @@ export const Details = () => {
                   </div>
                 </section>
               </main>
+              </div>
             </>
           )
       }
       </div>
-    </div>
-
   )
 }
