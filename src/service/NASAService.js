@@ -1,9 +1,11 @@
 import { useState } from "react";
 
 export const useNASAService = () => {
-    const URL = 'https://images-api.nasa.gov/search?q=';
+    const _baseURL = 'https://images-api.nasa.gov/';
 
+    const startYear = 1;
     const currentYear = new Date().getFullYear();
+    const itemsPerPage = 10;
 
     const [items, setItems] = useState([]);
     const [totalSearch, setTotalSearch] = useState();
@@ -18,32 +20,23 @@ export const useNASAService = () => {
         return await res.json();
     }
 
-    const getItems = async (search = 'space', page = 1, pageSize = 10) => {
-        await getData(`${URL}${search}&page=${page}&page_size=${pageSize}&media_type=image`)
+    const getItems = async (search, page, pageSize = itemsPerPage, yearStart = startYear, yearEnd = currentYear) => {
+        await getData(`${_baseURL}search?q=${search}&page=${page}&page_size=${pageSize}&media_type=image&year_start=${yearStart}&year_end=${yearEnd}`)
             .then(res => {
                 setItems(res.collection.items);
                 setTotalSearch(res.collection.metadata.total_hits);
             })
     }
 
-    const getItemsWithFilters = async (search = 'space', page = 1, pageSize = 10, yearStart, yearEnd) => {
-        await getData(`${URL}${search}&page=${page}&page_size=${pageSize}&media_type=image&year_start=${yearStart}&year_end=${yearEnd}`)
-        .then(res => {
-            setItems(res.collection.items);
-            setTotalSearch(res.collection.metadata.total_hits);
-        })
-    }
-
-
-    const getImage = async (id) => {
-        await getData(`https://images-api.nasa.gov/asset/${id}`)
+    const getAsset = async (id) => {
+        await getData(`${_baseURL}asset/${id}`)
             .then(res => {
                 setImage(res.collection.items[0].href);
             })
     }
 
-    const getDescId = async (id) => {
-        await getData(`https://images-api.nasa.gov/metadata/${id}`)
+    const getMetaData = async (id) => {
+        await getData(`${_baseURL}metadata/${id}`)
         .then(res => getData(res.location))
         .then(obj => {
             setMetaData({
@@ -60,12 +53,11 @@ export const useNASAService = () => {
 
     return {
         getItems,
-        getItemsWithFilters,
         items, 
         totalSearch,
         currentYear, 
-        getImage,
-        getDescId,
+        getAsset,
+        getMetaData,
         metaData,
         image,
     }

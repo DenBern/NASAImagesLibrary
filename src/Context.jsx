@@ -1,33 +1,37 @@
 import React, {useState} from "react";
 import { Main } from "./components/pages/Main/Main.jsx";
+import { useSearchParams } from "react-router-dom";
 
 export const Context = React.createContext();
 
 export const MainContext = () => {
-    const defaultSearch = 'space';
-    const currentYear = new Date().getFullYear();
-    const [search, setSearch] = useState(defaultSearch);
+    const startSearch = 'Earth';
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [search, setSearch] = useState(startSearch.toLowerCase());
     const [yearStart, setYearStart] = useState();
     const [yearEnd, setYearEnd] = useState();
     const [pageSize, setPageSize] = useState(10);
-    const [page, setPage] = useState(1);
+    const [page, setPage] = useState(+searchParams.get('page') || 1);
 
     return (
         <Context.Provider
-            value={{
-                currentYear,
-                search,
-                setSearch,
-                yearStart,
-                setYearStart,
-                yearEnd,
-                setYearEnd,
-                pageSize,
-                setPageSize,
-                page,
-                setPage,
-                defaultSearch,
-            }}
+            value={
+                {
+                    search,
+                    setSearch,
+                    yearStart,
+                    setYearStart,
+                    yearEnd,
+                    setYearEnd,
+                    pageSize,
+                    setPageSize,
+                    page,
+                    setPage,
+                    startSearch,
+                    searchParams,
+                    setSearchParams,
+                }
+            }
         >
             <Main/>
         </Context.Provider>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Search } from '../../Search/Search.jsx';
 import { Gallery } from '../../Gallery/Gallery.jsx';
+import { PlanetsButtons } from '../../PlanetsButtons/PlanetsButton.jsx';
 
 import "./Main.scss";
-import { PlanetsButtons } from '../../PlanetsButtons/PlanetsButton.jsx';
 
 export const Main = () => {
 

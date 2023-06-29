@@ -1,13 +1,12 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../../Context.jsx";
 import { Card } from "./Card/Card.jsx";
 import { Divider } from "../Divider/Divider.jsx";
 import { useNASAService } from "../../service/NASAService.js";
-
+import { DateFilter } from "../DateFilter/DateFilter.jsx";
 import { Select, MenuItem, Pagination} from "@mui/material";
 
 import "./Gallery.scss";
-import { DateFilter } from "../DateFilter/DateFilter.jsx";
 
 export const Gallery = () => {
 
@@ -19,9 +18,14 @@ export const Gallery = () => {
         setPageSize,
         yearStart,
         yearEnd,
+        setSearchParams,
     } = useContext(Context);
 
-    const{getItems, getItemsWithFilters, items, totalSearch} = useNASAService();
+    const{
+        getItems, 
+        items, 
+        totalSearch
+    } = useNASAService();
 
     const maxAPILimit = 10000;
     const pages = totalSearch > maxAPILimit 
@@ -30,15 +34,12 @@ export const Gallery = () => {
 
     const handleChangeSize = (e) => {
         setPage(1);
+        setSearchParams(`page=${1}`)
         setPageSize(e.target.value);
     };
 
     useEffect(() => {
-        if(yearStart || yearEnd) {
-            getItemsWithFilters(search, page, pageSize, yearStart, yearEnd);
-        } else {
-            getItems(search, page, pageSize);
-        }
+        getItems(search, page, pageSize, yearStart, yearEnd);
     }, [search, pageSize, page, yearStart, yearEnd]);
 
     return (
@@ -90,7 +91,11 @@ export const Gallery = () => {
                 <Pagination
                     page={page}
                     count={pages}
-                    onChange={(_, page) => setPage(page)}
+                    onChange={(_, page) => {
+                            setPage(page);
+                            setSearchParams(`page=${page}`)
+                        }
+                    }
                 />
             </section>
         </>

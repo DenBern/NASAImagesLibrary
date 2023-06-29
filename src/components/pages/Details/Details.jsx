@@ -1,5 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import { useNASAService } from "../../../service/NASAService";
 import { Divider } from "../../Divider/Divider.jsx";
 import { Button } from "@mui/material";
@@ -10,11 +11,11 @@ import "./Details.scss";
 export const Details = () => {
 
   const {id} = useParams();
-  const{getDescId, metaData, getImage, image} = useNASAService();
+  const{getMetaData, metaData, getAsset, image} = useNASAService();
 
   useEffect(() => {
-    getImage(id);
-    getDescId(id);
+    getAsset(id);
+    getMetaData(id);
   }, [id]);
 
   return (
@@ -28,12 +29,18 @@ export const Details = () => {
                 <div className="title-details">
                   <h3>{metaData.title}</h3>
                 </div>
-                <div className="button-back">
-                  <Button
-                    startIcon={<ReplyIcon/>}>
-                    Back
-                  </Button>
-                </div>
+                
+                  <div className="button-back">
+                    <Link
+                      to={`/main`}
+                      key={id}
+                    >
+                      <Button
+                        startIcon={<ReplyIcon/>}>
+                        Back
+                      </Button>
+                    </Link>
+                  </div>
               </header>
             </div>
             <Divider/>
@@ -45,19 +52,6 @@ export const Details = () => {
                     src={image} 
                     alt={metaData.title}
                   />
-                  {/* <div 
-                    style={
-                      {
-                        background: `url(${image})`,
-                        backgroundRepeat: 'no-repeat',
-                        backgroundSize: 'contain',
-                        width: '920px',
-                        height: '600px',
-                      }
-                    }
-                    className="imgf"
-
-                  /> */}
                   <div className="wrapper-keywords">
                     <h4>Keywords:</h4>
                     <div className="keywords">

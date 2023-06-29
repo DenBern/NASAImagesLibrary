@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Button } from "@mui/joy";
 import { Context } from "../../Context.jsx";
-import dayjs from 'dayjs';
+import { Button } from "@mui/joy";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { DatePicker } from "@mui/x-date-pickers";
@@ -9,15 +8,12 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
 
 import "./DateFilter.scss";
-import { setYear } from "date-fns";
 
 export const DateFilter = () => {
 
   const [startYear, setStartYear] = useState();
   const [endYear, setEndYear] = useState();
-
-  const {yearStart, yearEnd, setYearStart, setYearEnd} = useContext(Context);
-  const currentYear = dayjs(new Date()).format('YYYY');;
+  const {setYearStart, setYearEnd} = useContext(Context);
 
   return (
     <div className="date-filter">
@@ -57,7 +53,6 @@ export const DateFilter = () => {
       >
         <SearchIcon/>
       </Button>
-      
     </div>
   )
 }

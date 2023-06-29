@@ -8,7 +8,7 @@ import  "./Search.scss";
 
 export const Search = () => {
 
-  const {setSearch, defaultSearch} = useContext(Context);
+  const {setSearch, defaultSearch, setSearchParams, setPage} = useContext(Context);
   const [value, setValue] = useState('');
 
   return (
@@ -35,7 +35,12 @@ export const Search = () => {
         placeholder="Type in here…"
         endDecorator={
             <Button
-              onClick={() => setSearch(value === '' ? defaultSearch : value)}
+              onClick={() => {
+                  setSearch(value === '' ? defaultSearch.toLowerCase() : value.toLowerCase());
+                  setSearchParams(`page=${1}`);
+                  setPage(1);
+                }
+              }
               style={{
                 background: 'none',
               }}>

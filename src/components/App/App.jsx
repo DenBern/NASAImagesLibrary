@@ -9,7 +9,7 @@ export const App = () => {
   return (
       <Router>
         <Routes>
-          <Route path="*" element={<MainContext/>}/>
+          <Route path="/main" element={<MainContext/>}/>
           <Route path="/:id" element={<Details/>}/>
         </Routes>
       </Router>

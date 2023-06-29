@@ -6,15 +6,22 @@ import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
 import "./Card.scss";
 
 export const Card = (props) => {
-    const {img, location, photographer, title, id} = props;
+    const {
+        img, 
+        location, 
+        photographer, 
+        title, 
+        id
+    } = props;
 
     return (
-        <Link 
-            to={`/${id}`}
-            key={id}
-        >
             <div className="card">
-                <img className="card-img" src={img} alt={title}/>
+                <Link
+                    to={`/${id}`}
+                    key={id}
+                >
+                    <img className="card-img" src={img} alt={title}/>
+                </Link>
                 <div className="card-description">
                     <h3>{title}</h3>
                     <div className="details">
@@ -35,7 +42,7 @@ export const Card = (props) => {
                             }
                         </div>
                         <div className="photographer">
-                            {photographer 
+                            {photographer
                                 ? (
                                     <>
                                         <div className="logo">
@@ -43,7 +50,7 @@ export const Card = (props) => {
                                         </div>
                                         <span>&#xb7;</span>
                                         <div className="name">
-                                            <i>{photographer}</i>
+                                            <i>{photographer.replace(/ /g, '') !== '' ? photographer : null}</i>
                                         </div>
                                     </>
                                 ) 
@@ -53,6 +60,5 @@ export const Card = (props) => {
                     </div>
                 </div>
             </div>
-        </Link>
     )
 }
