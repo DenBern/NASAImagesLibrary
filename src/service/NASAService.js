@@ -11,6 +11,7 @@ export const useNASAService = () => {
     const [totalSearch, setTotalSearch] = useState();
     const [image, setImage] = useState();
     const [metaData, setMetaData] = useState();
+    const [loadingItems, setLoadingItems] = useState(false);
 
     const getData = async (url) => {
         let res = await fetch(url);
@@ -21,10 +22,12 @@ export const useNASAService = () => {
     }
 
     const getItems = async (search, page, pageSize = itemsPerPage, yearStart = startYear, yearEnd = currentYear) => {
+        setLoadingItems(true);
         await getData(`${_baseURL}search?q=${search}&page=${page}&page_size=${pageSize}&media_type=image&year_start=${yearStart}&year_end=${yearEnd}`)
             .then(res => {
                 setItems(res.collection.items);
                 setTotalSearch(res.collection.metadata.total_hits);
+                setLoadingItems(false);
             })
     }
 
@@ -60,5 +63,6 @@ export const useNASAService = () => {
         getMetaData,
         metaData,
         image,
+        loadingItems,
     }
 }

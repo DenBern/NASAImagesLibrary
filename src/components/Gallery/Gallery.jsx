@@ -5,6 +5,7 @@ import { Divider } from "../Divider/Divider.jsx";
 import { useNASAService } from "../../service/NASAService.js";
 import { DateFilter } from "../DateFilter/DateFilter.jsx";
 import { Select, MenuItem, Pagination} from "@mui/material";
+import { SkeletonCard } from "../Skeletons/SkeletonItems/SkeletonCard.jsx";
 
 import "./Gallery.scss";
 
@@ -24,7 +25,8 @@ export const Gallery = () => {
     const{
         getItems, 
         items, 
-        totalSearch
+        totalSearch,
+        loadingItems,
     } = useNASAService();
 
     const maxAPILimit = 10000;
@@ -73,20 +75,19 @@ export const Gallery = () => {
                 </div>
                 <Divider/>
                 <div className="cards">
-                    {items.length === 0 
-                        ? <p>EMPTY</p>
-                        : items.map(item => 
-                            <Card
-                                key={item.data[0].nasa_id}
-                                img={item.links[0].href}
-                                location={item.data[0].location}
-                                photographer={item.data[0].photographer}
-                                title={item.data[0].title}
-                                date={item.data[0].date_created}
-                                id={item.data[0].nasa_id}
-                            />
-                        )
-                    }
+                        {loadingItems ?? <SkeletonCard/>}
+                        {items.map(item =>
+                                <Card
+                                    key={item.data[0].nasa_id}
+                                    img={item.links[0].href}
+                                    location={item.data[0].location}
+                                    photographer={item.data[0].photographer}
+                                    title={item.data[0].title}
+                                    date={item.data[0].date_created}
+                                    id={item.data[0].nasa_id}
+                                />
+                            )
+                        }
                 </div>
                 <Pagination
                     page={page}
