@@ -75,19 +75,21 @@ export const Gallery = () => {
                 </div>
                 <Divider/>
                 <div className="cards">
-                        {loadingItems ?? <SkeletonCard/>}
-                        {items.map(item =>
-                                <Card
-                                    key={item.data[0].nasa_id}
-                                    img={item.links[0].href}
-                                    location={item.data[0].location}
-                                    photographer={item.data[0].photographer}
-                                    title={item.data[0].title}
-                                    date={item.data[0].date_created}
-                                    id={item.data[0].nasa_id}
-                                />
+                    {loadingItems ? <SkeletonCard pageSize={pageSize}/>
+                    : (
+                        items.map(item =>
+                            <Card
+                                key={item.data[0].nasa_id}
+                                img={item.links[0].href}
+                                location={item.data[0].location}
+                                photographer={item.data[0].photographer}
+                                title={item.data[0].title}
+                                date={item.data[0].date_created}
+                                id={item.data[0].nasa_id}
+                            />
                             )
-                        }
+                        )
+                    }
                 </div>
                 <Pagination
                     page={page}
