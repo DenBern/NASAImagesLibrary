@@ -57,7 +57,7 @@ export const useNASAService = () => {
                 date: obj['AVAIL:DateCreated'],
             });
         })
-        // setLoadingMetaData(false);
+        setLoadingMetaData(false);
     }
 
     return {

@@ -12,10 +12,12 @@
       flex-direction: row;
       justify-content: space-between;
       padding: 0 10px;
+      width: 100%;
 
       .title-details {
         display: flex;
         flex-direction: row;
+        width: 100%;
 
         h3 {
           font-family: 'Inter', sans-serif;
@@ -24,8 +26,9 @@
           font-weight: 500;
           line-height: 20px;
           color: #fff;
-          padding: 27px 0 27px 0;
+          padding: 27px 5px 27px 10px;
           text-transform: uppercase;
+          width: 100%;
         }
 
         hr {

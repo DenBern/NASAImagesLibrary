@@ -1,0 +1,24 @@
+.details-skeleton {
+  display: flex; 
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 30px 10px;
+
+  .main-skeleton {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    height: 400px;
+  }
+
+  .keywords-skeleton {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 50%;
+    height: 100px;
+  }
+}

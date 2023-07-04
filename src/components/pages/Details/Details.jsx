@@ -6,19 +6,21 @@ import { Divider } from "../../Divider/Divider.jsx";
 import { SkeletonDetails } from "../../Skeletons/SkeletonDetails/SkeletonDetails.jsx";
 import { Button } from "@mui/material";
 import ReplyIcon from '@mui/icons-material/Reply';
-import Skeleton from "react-loading-skeleton";
+import { Skeleton } from "@mui/material";
 
 import "./Details.scss";
 
 export const Details = () => {
 
   const {id} = useParams();
-  const{getMetaData, metaData, getAsset, image, loadingMetaData} = useNASAService();
+  const{getMetaData, metaData, getAsset, image, loadingMetaData, loadingAsset} = useNASAService();
 
   useEffect(() => {
     getAsset(id);
     getMetaData(id);
   }, [id]);
+
+  const loaded = !loadingMetaData && metaData && !loadingAsset;
 
   return (
     <div className="wrapper-details">
@@ -26,7 +28,15 @@ export const Details = () => {
         <div className="wrapper-header">
           <header>
             <div className="title-details">
-              <h3>{!loadingMetaData && metaData ? metaData.title : <Skeleton width={`70%`} height={30}/>}</h3>
+              <h3>
+                {!loadingMetaData && metaData
+                  ? metaData.title 
+                  : <Skeleton
+                      variant="text"
+                      width="70%"
+                    />
+                }
+              </h3>
             </div>
             
               <div className="button-back">
@@ -45,8 +55,8 @@ export const Details = () => {
         <Divider/>
         <div className="wrapper-main">
           {loadingMetaData 
-            ? (<SkeletonDetails/>)
-            : (!loadingMetaData && metaData)
+            ? <SkeletonDetails/>
+            : loaded
             ? (
                 <main>
                   <section className="img-keywords">
