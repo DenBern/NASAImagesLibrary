@@ -1,6 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Context } from "../../Context.jsx";
-
+import { Context } from "../../context/Context.jsx";
 import { Input, Button } from "@mui/joy";
 import SearchIcon from "@mui/icons-material/Search";
 

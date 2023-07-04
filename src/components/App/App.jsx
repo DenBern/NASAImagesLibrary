@@ -1,6 +1,6 @@
 import React from 'react';
 import {HashRouter as Router, Route, Routes} from 'react-router-dom';
-import { MainContext } from '../../Context.jsx';
+import { MainContext } from '../../context/Context.jsx';
 import { Details } from '../pages/Details/Details.jsx';
 
 import './App.scss';

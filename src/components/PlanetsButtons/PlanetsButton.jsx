@@ -1,13 +1,13 @@
 import React, {useContext, useState} from "react";
 import { Button } from "@mui/joy";
 import { planets } from "../../variables/variables.js";
+import { Context } from "../../context/Context.jsx";
 
 import "./PlanetsButtons.scss";
-import { Context } from "../../Context.jsx";
 
 export const PlanetsButtons = () => {
 
-  const {page, setSearch, setPage, defaultSearch} = useContext(Context);
+  const {page, setSearch, setPage} = useContext(Context);
   const [activeButton, setActiveButton] = useState(false);
 
   const handleChangeButton = (activeButton) => {

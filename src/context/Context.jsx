@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import { Main } from "./components/pages/Main/Main.jsx";
+import { Main } from "../components/pages/Main/Main.jsx";
 import { useSearchParams } from "react-router-dom";
 
 export const Context = React.createContext();

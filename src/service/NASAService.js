@@ -12,6 +12,8 @@ export const useNASAService = () => {
     const [image, setImage] = useState();
     const [metaData, setMetaData] = useState();
     const [loadingItems, setLoadingItems] = useState(false);
+    const [loadingAsset, setLoadingAsset] = useState(false);
+    const [loadingMetaData, setLoadingMetaData] = useState(false);
 
     const getData = async (url) => {
         let res = await fetch(url);
@@ -27,18 +29,21 @@ export const useNASAService = () => {
             .then(res => {
                 setItems(res.collection.items);
                 setTotalSearch(res.collection.metadata.total_hits);
-                setLoadingItems(false);
             })
+        setLoadingItems(false);
     }
 
     const getAsset = async (id) => {
+        setLoadingAsset(true);
         await getData(`${_baseURL}asset/${id}`)
             .then(res => {
                 setImage(res.collection.items[0].href);
             })
+        setLoadingAsset(false);
     }
 
     const getMetaData = async (id) => {
+        setLoadingMetaData(true);
         await getData(`${_baseURL}metadata/${id}`)
         .then(res => getData(res.location))
         .then(obj => {
@@ -50,8 +55,9 @@ export const useNASAService = () => {
                 description: obj['AVAIL:Description'],
                 keywords: obj['AVAIL:Keywords'],
                 date: obj['AVAIL:DateCreated'],
-            })
+            });
         })
+        // setLoadingMetaData(false);
     }
 
     return {
@@ -64,5 +70,7 @@ export const useNASAService = () => {
         metaData,
         image,
         loadingItems,
+        loadingAsset,
+        loadingMetaData,
     }
 }

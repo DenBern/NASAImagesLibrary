@@ -42,6 +42,13 @@ export const SkeletonCard = (props) => {
               width={`100%`} 
               height={`100%`}
             />
+            <Skeleton
+              baseColor="#5294e0"
+              highlightColor="#96c7ff"
+              duration={0.9} 
+              width={`100%`} 
+              height={`100%`}
+            />
           </div>
         )
       }
