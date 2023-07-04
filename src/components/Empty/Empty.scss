@@ -1,0 +1,29 @@
+.empty-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  .empty-image {
+    width: 300px;
+    height: 400px;
+    background: url(../../assets/png/errorEmpty.png) no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+  .empty {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    padding-bottom: 20px;
+
+      h3 {
+        font-size: 28px;
+        font-family: "Inter", sans-serif;
+      }
+
+      p {
+        font-size: 20px;
+        font-family: "Inter", sans-serif;
+      }
+  }
+}

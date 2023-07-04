@@ -6,6 +6,7 @@ import { useNASAService } from "../../service/NASAService.js";
 import { DateFilter } from "../DateFilter/DateFilter.jsx";
 import { Select, MenuItem, Pagination} from "@mui/material";
 import { SkeletonCard } from "../Skeletons/SkeletonCard/SkeletonCard.jsx";
+import { Empty } from "../Empty/Empty.jsx";
 
 import "./Gallery.scss";
 
@@ -44,6 +45,8 @@ export const Gallery = () => {
         getItems(search, page, pageSize, yearStart, yearEnd);
     }, [search, pageSize, page, yearStart, yearEnd]);
 
+    console.log(totalSearch)
+
     return (
         <section className="gallery">
             <div className="results">
@@ -74,6 +77,7 @@ export const Gallery = () => {
             </div>
             <Divider/>
             <div className="cards">
+                {!totalSearch ? <Empty/> : null}
                 {loadingItems ? <SkeletonCard pageSize={pageSize}/>
                 : (
                     items.map(item =>
@@ -90,15 +94,19 @@ export const Gallery = () => {
                     )
                 }
             </div>
-            <Pagination
-                page={page}
-                count={pages}
-                onChange={(_, page) => {
-                        setPage(page);
-                        setSearchParams(`page=${page}`)
-                    }
-                }
-            />
+            {totalSearch > 0 
+                ?
+                    <Pagination
+                        page={page}
+                        count={pages}
+                        onChange={(_, page) => {
+                                setPage(page);
+                                setSearchParams(`page=${page}`)
+                            }
+                        }
+                    />
+                : null
+            }
         </section>
     )
 }
