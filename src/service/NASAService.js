@@ -7,13 +7,20 @@ export const useNASAService = () => {
     const currentYear = new Date().getFullYear();
     const itemsPerPage = 10;
 
-    const [items, setItems] = useState([]);
     const [totalSearch, setTotalSearch] = useState();
-    const [image, setImage] = useState();
-    const [metaData, setMetaData] = useState();
+
+    const [items, setItems] = useState([]);
     const [loadingItems, setLoadingItems] = useState(false);
+    const [errorItems, setErrorItems] = useState(false);
+
+
+    const [asset, setAsset] = useState();
     const [loadingAsset, setLoadingAsset] = useState(false);
+    const [errorAsset, setErrorAsset] = useState(false);
+
+    const [metaData, setMetaData] = useState();
     const [loadingMetaData, setLoadingMetaData] = useState(false);
+    const [errorMetaData, setErrorMetaData] = useState(false);
 
     const getData = async (url) => {
         let res = await fetch(url);
@@ -24,25 +31,36 @@ export const useNASAService = () => {
     }
 
     const getItems = async (search, page, pageSize = itemsPerPage, yearStart = startYear, yearEnd = currentYear) => {
+        setErrorItems(false);
         setLoadingItems(true);
         await getData(`${_baseURL}search?q=${search}&page=${page}&page_size=${pageSize}&media_type=image&year_start=${yearStart}&year_end=${yearEnd}`)
             .then(res => {
                 setItems(res.collection.items);
                 setTotalSearch(res.collection.metadata.total_hits);
+                setLoadingItems(false);
             })
-        setLoadingItems(false);
+            .catch(() => {
+                setErrorItems(true);
+                setLoadingItems(false);
+            })
     }
 
     const getAsset = async (id) => {
+        setErrorAsset(false);
         setLoadingAsset(true);
         await getData(`${_baseURL}asset/${id}`)
             .then(res => {
-                setImage(res.collection.items[0].href);
+                setAsset(res.collection.items[1].href);
+                setLoadingAsset(false);
             })
-        setLoadingAsset(false);
+            .catch(() => {
+                setErrorAsset(true);
+                setLoadingAsset(false);
+            })
     }
 
     const getMetaData = async (id) => {
+        setErrorMetaData(false);
         setLoadingMetaData(true);
         await getData(`${_baseURL}metadata/${id}`)
         .then(res => getData(res.location))
@@ -56,21 +74,28 @@ export const useNASAService = () => {
                 keywords: obj['AVAIL:Keywords'],
                 date: obj['AVAIL:DateCreated'],
             });
+            setLoadingMetaData(false);
         })
-        setLoadingMetaData(false);
+        .catch(() => {
+            setLoadingMetaData(false);
+            setErrorMetaData(true);
+        })
     }
 
     return {
         getItems,
-        items, 
+        items,
+        loadingItems,
+        errorItems,
         totalSearch,
         currentYear, 
         getAsset,
+        asset,
+        loadingAsset,
+        errorAsset,
         getMetaData,
         metaData,
-        image,
-        loadingItems,
-        loadingAsset,
         loadingMetaData,
+        errorMetaData,
     }
 }

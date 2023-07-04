@@ -10,15 +10,6 @@ export const PlanetsButtons = () => {
   const {page, setSearch, setPage} = useContext(Context);
   const [activeButton, setActiveButton] = useState(false);
 
-  const handleChangeButton = (activeButton) => {
-    if (!activeButton) {
-      setActiveButton(!activeButton);
-      setPage(1);
-    } else {
-      setActiveButton(!activeButton);
-    }
-  }
-
   const handleChangePlanet = (planet) => {
     if (page !== 1) {
       setPage(1);
@@ -35,7 +26,7 @@ export const PlanetsButtons = () => {
                 background: '#312E81',
             }
         }
-        onClick={() => handleChangeButton(activeButton)}
+        onClick={() => setActiveButton(!activeButton)}
       >
           Solar system planets
       </Button>

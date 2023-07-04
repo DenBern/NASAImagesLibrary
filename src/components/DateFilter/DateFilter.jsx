@@ -13,7 +13,7 @@ export const DateFilter = () => {
 
   const [startYear, setStartYear] = useState();
   const [endYear, setEndYear] = useState();
-  const {setYearStart, setYearEnd} = useContext(Context);
+  const {setYearStart, setYearEnd, setPage, setSearchParams} = useContext(Context);
 
   return (
     <div className="date-filter">
@@ -21,6 +21,8 @@ export const DateFilter = () => {
         onClick={() => {
           setYearStart();
           setYearEnd();
+          setSearchParams(`page=${1}`);
+          setPage(1);
         }}
         style={{
           width: '50px',
@@ -45,6 +47,8 @@ export const DateFilter = () => {
         onClick={() => {
           setYearStart(startYear);
           setYearEnd(endYear);
+          setSearchParams(`page=${1}`);
+          setPage(1);
         }}
         style={{
           width: '50px',

@@ -13,7 +13,13 @@ import "./Details.scss";
 export const Details = () => {
 
   const {id} = useParams();
-  const{getMetaData, metaData, getAsset, image, loadingMetaData, loadingAsset} = useNASAService();
+  const{
+    getMetaData, 
+    metaData, 
+    getAsset, 
+    asset, 
+    loadingMetaData, 
+    loadingAsset} = useNASAService();
 
   useEffect(() => {
     getAsset(id);
@@ -32,6 +38,7 @@ export const Details = () => {
                 {!loadingMetaData && metaData
                   ? metaData.title 
                   : <Skeleton
+                      sx={{ bgcolor: "#21212194"}}
                       variant="text"
                       width="70%"
                     />
@@ -62,7 +69,7 @@ export const Details = () => {
                   <section className="img-keywords">
                     <img
                       className="image"
-                      src={image} 
+                      src={asset} 
                       alt={metaData.title}
                     />
                     <div className="wrapper-keywords">

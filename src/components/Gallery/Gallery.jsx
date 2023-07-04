@@ -48,7 +48,7 @@ export const Gallery = () => {
         <section className="gallery">
             <div className="results">
                 <p className="result-text">
-                    Results for <b>{search.toUpperCase()}</b>
+                    Total results <b>{totalSearch}</b>
                 </p>
                 <DateFilter/>
                 <div className="size-cards">
