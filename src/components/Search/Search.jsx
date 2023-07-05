@@ -7,7 +7,7 @@ import  "./Search.scss";
 
 export const Search = () => {
 
-  const {setSearch, defaultSearch, setSearchParams, setPage} = useContext(Context);
+  const {setSearch, startSearch, setSearchParams, setPage} = useContext(Context);
   const [value, setValue] = useState('');
 
   return (
@@ -35,7 +35,7 @@ export const Search = () => {
         endDecorator={
             <Button
               onClick={() => {
-                  setSearch(value === '' ? defaultSearch.toLowerCase() : value.toLowerCase());
+                  setSearch(value === '' ? startSearch.toLowerCase() : value.toLowerCase());
                   setSearchParams(`page=${1}`);
                   setPage(1);
                 }

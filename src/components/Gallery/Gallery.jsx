@@ -13,10 +13,10 @@ import "./Gallery.scss";
 export const Gallery = () => {
 
     const{
-        search, 
-        page, 
-        setPage, 
-        pageSize, 
+        search,
+        page,
+        setPage,
+        pageSize,
         setPageSize,
         yearStart,
         yearEnd,
@@ -24,15 +24,15 @@ export const Gallery = () => {
     } = useContext(Context);
 
     const{
-        getItems, 
-        items, 
+        getItems,
+        items,
         totalSearch,
         loadingItems,
     } = useNASAService();
 
     const maxAPILimit = 10000;
-    const pages = totalSearch > maxAPILimit 
-        ? Math.ceil(maxAPILimit / pageSize ) 
+    const pages = totalSearch > maxAPILimit
+        ? Math.ceil(maxAPILimit / pageSize )
         : Math.ceil(totalSearch / pageSize);
 
     const handleChangeSize = (e) => {
@@ -44,8 +44,6 @@ export const Gallery = () => {
     useEffect(() => {
         getItems(search, page, pageSize, yearStart, yearEnd);
     }, [search, pageSize, page, yearStart, yearEnd]);
-
-    console.log(totalSearch)
 
     return (
         <section className="gallery">
@@ -77,7 +75,7 @@ export const Gallery = () => {
             </div>
             <Divider/>
             <div className="cards">
-                {!totalSearch ? <Empty/> : null}
+                {(!totalSearch && !loadingItems) ? <Empty/> : null}
                 {loadingItems ? <SkeletonCard pageSize={pageSize}/>
                 : (
                     items.map(item =>
@@ -94,7 +92,7 @@ export const Gallery = () => {
                     )
                 }
             </div>
-            {totalSearch > 0 
+            {totalSearch > 0
                 ?
                     <Pagination
                         page={page}

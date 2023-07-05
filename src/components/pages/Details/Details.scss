@@ -1,5 +1,6 @@
 .wrapper-details {
   width: 100%;
+  min-height: 100vh;
   background: #312E81;
 
   .wrapper-header,
@@ -120,7 +121,7 @@
         gap: 10px;
         width: 30%;
 
-          .photographer, 
+          .photographer,
           .date-created {
             display: flex;
             flex-direction: row;
@@ -140,7 +141,7 @@
             flex-direction: column;
             gap: 15px;
             padding-top: 10px;
-            
+
               .description {
                 font-size: 16px;
                 gap: 15px;
