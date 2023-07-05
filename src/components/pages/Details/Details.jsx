@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useNASAService } from "../../../service/NASAService";
@@ -7,6 +7,7 @@ import { SkeletonDetails } from "../../Skeletons/SkeletonDetails/SkeletonDetails
 import { Button } from "@mui/material";
 import ReplyIcon from '@mui/icons-material/Reply';
 import { Skeleton } from "@mui/material";
+import { TypographyStylesProvider } from '@mantine/core';
 
 import "./Details.scss";
 
@@ -14,11 +15,11 @@ export const Details = () => {
 
   const {id} = useParams();
   const{
-    getMetaData, 
-    metaData, 
-    getAsset, 
-    asset, 
-    loadingMetaData, 
+    getMetaData,
+    metaData,
+    getAsset,
+    asset,
+    loadingMetaData,
     loadingAsset} = useNASAService();
 
   useEffect(() => {
@@ -36,7 +37,7 @@ export const Details = () => {
             <div className="title-details">
               <h3>
                 {!loadingMetaData && metaData
-                  ? metaData.title 
+                  ? metaData.title
                   : <Skeleton
                       sx={{ bgcolor: "#21212194"}}
                       variant="text"
@@ -45,7 +46,6 @@ export const Details = () => {
                 }
               </h3>
             </div>
-            
               <div className="button-back">
                 <Link
                   to={`/main`}
@@ -61,7 +61,7 @@ export const Details = () => {
         </div>
         <Divider/>
         <div className="wrapper-main">
-          {loadingMetaData 
+          {loadingMetaData
             ? <SkeletonDetails/>
             : loaded
             ? (
@@ -69,7 +69,7 @@ export const Details = () => {
                   <section className="img-keywords">
                     <img
                       className="image"
-                      src={asset} 
+                      src={asset}
                       alt={metaData.title}
                     />
                     <div className="wrapper-keywords">
@@ -77,7 +77,7 @@ export const Details = () => {
                       <div className="keywords">
                         {metaData.keywords.map((item, index) => {
                           return (
-                            <p 
+                            <p
                               className="keyword"
                               key={index}>
                               {item}
@@ -92,7 +92,12 @@ export const Details = () => {
                     <Divider/>
                     <div className="photographer">
                       <h5>Created by</h5>
-                      <p>{metaData.photographer === '' ?  metaData.secondaryCreator : metaData.photographer}</p>
+                      <p>{
+                        metaData.photographer === ''
+                          ?  metaData.secondaryCreator
+                          : metaData.photographer
+                        }
+                      </p>
                     </div>
                     <Divider/>
                     <div className="date-created">
@@ -102,9 +107,9 @@ export const Details = () => {
                     <Divider/>
                     <div className="wrapper-description">
                       <h4>Description</h4>
-                      <p className="description">
-                        {metaData.description}
-                      </p>
+                      <TypographyStylesProvider>
+                        <div dangerouslySetInnerHTML={{ __html: `<p>${metaData.description}</p>`}} />
+                      </TypographyStylesProvider>
                     </div>
                   </section>
                 </main>

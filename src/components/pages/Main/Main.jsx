@@ -19,7 +19,7 @@ export const Main = () => {
                     </div>
                     <div className="description">
                         <span className="gradient-text">
-                            Unlock the secrets of the universe  
+                            Unlock the secrets of the universe
                         </span>
                         <span>
                             and explore our vast file library!

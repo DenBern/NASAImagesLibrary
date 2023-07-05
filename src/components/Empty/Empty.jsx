@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
 import { Button } from "@mui/joy";
-
-import './Empty.scss';
 import { Context } from "../../context/Context.jsx";
 
-export const Empty = () => {
+import './Empty.scss';
+
+export const Empty = (props) => {
+  const {errorItems} = props;
   const {setSearch, startSearch} = useContext(Context);
   return (
     <div className="empty-wrapper">
@@ -12,10 +13,14 @@ export const Empty = () => {
       <div className="empty">
         <h3>
           Ooops !<br/>
-          Houston, we have a problem !
+          Houston, <br/>
+          we have a problem !
         </h3>
         <p>
-          Results not found!
+          {!errorItems
+            ? 'Results not found'
+            : 'Something went wrong'
+          }
         </p>
         <Button
           width={`30%`}

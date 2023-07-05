@@ -28,6 +28,7 @@ export const Gallery = () => {
         items,
         totalSearch,
         loadingItems,
+        errorItems,
     } = useNASAService();
 
     const maxAPILimit = 10000;
@@ -75,7 +76,7 @@ export const Gallery = () => {
             </div>
             <Divider/>
             <div className="cards">
-                {(!totalSearch && !loadingItems) ? <Empty/> : null}
+                {(!totalSearch && !loadingItems) ? <Empty errorItems={errorItems}/> : null}
                 {loadingItems ? <SkeletonCard pageSize={pageSize}/>
                 : (
                     items.map(item =>

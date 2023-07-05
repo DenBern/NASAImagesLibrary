@@ -78,6 +78,7 @@
         font-family: Inter;
         font-weight: 500;
         line-height: 20px;
+        color: #fff;
       }
 
       .img-keywords {
@@ -146,6 +147,10 @@
                 font-size: 16px;
                 gap: 15px;
                 max-width: 90%;
+              }
+
+              .text-descr {
+                color: #fff;
               }
           }
       }
