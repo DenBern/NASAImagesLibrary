@@ -22,11 +22,11 @@ export const Empty = (props) => {
             : 'Something went wrong'
           }
         </p>
-        <Button
+        {/* <Button
           width={`30%`}
           onClick={() => setSearch(startSearch.toLowerCase())}>
           Back to search
-        </Button>
+        </Button> */}
       </div>
     </div>
   )
