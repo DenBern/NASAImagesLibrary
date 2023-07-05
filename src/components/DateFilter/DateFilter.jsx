@@ -13,16 +13,24 @@ export const DateFilter = () => {
 
   const [startYear, setStartYear] = useState();
   const [endYear, setEndYear] = useState();
-  const {setYearStart, setYearEnd, setPage, setSearchParams} = useContext(Context);
+  const {
+    setYearStart,
+    setYearEnd,
+    setPage,
+    setSearchParams,
+    startSearch,
+    setSearch,
+  } = useContext(Context);
 
   return (
     <div className="date-filter">
-      <Button 
+      <Button
         onClick={() => {
           setYearStart();
           setYearEnd();
           setSearchParams(`page=${1}`);
           setPage(1);
+          setSearch(startSearch)
         }}
         style={{
           width: '50px',
@@ -38,8 +46,8 @@ export const DateFilter = () => {
           onChange={(value) => setStartYear(value.$y)}
         />
         <DatePicker
-          label={"Year end"} 
-          views={['year']} 
+          label={"Year end"}
+          views={['year']}
           onChange={(value) => setEndYear(value.$y)}
         />
       </LocalizationProvider>

@@ -10,7 +10,7 @@ export const Empty = (props) => {
   return (
     <div className="empty-wrapper">
       <div className="empty-image"/>
-      <div className="empty">
+      <div className="empty-text">
         <h3>
           Ooops !<br/>
           Houston, <br/>
@@ -18,15 +18,10 @@ export const Empty = (props) => {
         </h3>
         <p>
           {!errorItems
-            ? 'Results not found'
-            : 'Something went wrong'
+            ? 'Results not found.'
+            : 'Something went wrong.'
           }
         </p>
-        {/* <Button
-          width={`30%`}
-          onClick={() => setSearch(startSearch.toLowerCase())}>
-          Back to search
-        </Button> */}
       </div>
     </div>
   )
