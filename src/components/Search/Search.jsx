@@ -24,9 +24,9 @@ export const Search = () => {
             {
               background: 'transparent',
               border: '2px solid rgba(209, 213, 219, 0.7)',
-              filter: 'drop-shadow(0px 1.57895px 3.15789px rgba(0, 0, 0, 0.05))',
-              borderRadius: '33.1579px',
-              width: '505.26px',
+              filter: 'drop-shadow(0 1.5px 3px rgba(0, 0, 0, 0.05))',
+              borderRadius: '33px',
+              width: '505px',
 
               fontFamily: 'Inter, sans-serif',
               fontStyle: 'normal',
@@ -57,6 +57,5 @@ export const Search = () => {
             Found by: <b>{search.toUpperCase()}</b>
           </p>
       </div>
-
   )
 }

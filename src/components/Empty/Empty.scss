@@ -1,27 +1,23 @@
 .empty-wrapper {
   display: flex;
-  flex-direction: row;
 
   .empty-image {
     width: 300px;
     height: 540px;
-    background: url(../../assets/png/errorEmpty.png) no-repeat;
-    background-position: center;
-    background-size: contain;
+    background: url(../../assets/png/errorEmpty.png) no-repeat center / contain;
   }
   .empty-text {
+    font-family: "Inter", sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 10px;
     padding-bottom: 20px;
-    font-family: "Inter", sans-serif;
 
       h3 {
         font-size: 28px;
       }
-
       p {
         font-size: 20px;
         background-color: #312E81;

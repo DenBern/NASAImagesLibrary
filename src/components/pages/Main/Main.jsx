@@ -1,7 +1,7 @@
 import React from 'react';
 import { Search } from '../../Search/Search.jsx';
 import { Gallery } from '../../Gallery/Gallery.jsx';
-import { PlanetsButtons } from '../../PlanetsButtons/PlanetsButton.jsx';
+import { PlanetsButtons } from '../../PlanetsButtons/PlanetsButtons.jsx';
 
 import "./Main.scss";
 

@@ -31,7 +31,6 @@ export const Details = () => {
 
   return (
     <div className="wrapper-details">
-      <>
         <div className="wrapper-header">
           <header>
             <div className="title-details">
@@ -117,7 +116,6 @@ export const Details = () => {
               : null
           }
         </div>
-      </>
     </div>
   )
 }
