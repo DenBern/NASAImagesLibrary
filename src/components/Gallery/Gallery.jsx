@@ -11,8 +11,7 @@ import { Empty } from "../Empty/Empty.jsx";
 import "./Gallery.scss";
 
 export const Gallery = () => {
-
-    const{
+    const {
         search,
         page,
         setPage,
@@ -23,7 +22,7 @@ export const Gallery = () => {
         setSearchParams,
     } = useContext(Context);
 
-    const{
+    const {
         getItems,
         items,
         totalSearch,
@@ -46,6 +45,8 @@ export const Gallery = () => {
         getItems(search, page, pageSize, yearStart, yearEnd);
     }, [search, pageSize, page, yearStart, yearEnd]);
 
+    const loadedItems = !loadingItems && !errorItems && items;
+
     return (
         <section className="gallery">
             <div className="results">
@@ -56,8 +57,8 @@ export const Gallery = () => {
                 <div className="size-cards">
                     <p>Page size</p>
                     <Select
-                        labelId="demo-simple-select-label"
-                        id="demo-simple-select"
+                        labelId="simple-select-label"
+                        id="simple-select"
                         value={pageSize}
                         onChange={handleChangeSize}
                         style={
@@ -76,24 +77,23 @@ export const Gallery = () => {
             </div>
             <Divider/>
             <div className="cards">
-                {(!totalSearch && !loadingItems) ? <Empty errorItems={errorItems}/> : null}
-                {loadingItems ? <SkeletonCard pageSize={pageSize}/>
-                : (
+                {(!totalSearch && !loadingItems) && <Empty errorItems={errorItems}/>}
+                {loadingItems && <SkeletonCard pageSize={pageSize}/>}
+                {loadedItems &&
                     items.map(item =>
-                        <Card
-                            key={item.data[0].nasa_id}
-                            img={item.links[0].href}
-                            location={item.data[0].location}
-                            photographer={item.data[0].photographer}
-                            title={item.data[0].title}
-                            date={item.data[0].date_created}
-                            id={item.data[0].nasa_id}
-                        />
+                            <Card
+                                key={item.data[0].nasa_id}
+                                img={item.links[0].href}
+                                location={item.data[0].location}
+                                photographer={item.data[0].photographer}
+                                title={item.data[0].title}
+                                date={item.data[0].date_created}
+                                id={item.data[0].nasa_id}
+                            />
                         )
-                    )
                 }
             </div>
-            {totalSearch > 0
+            {totalSearch > pageSize
                 ?
                     <Pagination
                         page={page}

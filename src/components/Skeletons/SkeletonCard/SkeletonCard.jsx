@@ -16,27 +16,27 @@ export const SkeletonCard = (props) => {
             <Skeleton
               sx={{ bgcolor: '#21212194'}}
               variant="rectangular"
-              duration={0.9} 
+              duration={0.9}
               width={256}
               height={144}
             />
             <Skeleton
               sx={{ bgcolor: '#21212194'}}
               variant="text"
-              duration={0.9} 
-              width={`100%`} 
+              duration={0.9}
+              width={`100%`}
             />
             <Skeleton
               sx={{ bgcolor: '#21212194'}}
               variant="text"
-              duration={0.9} 
-              width={`100%`} 
+              duration={0.9}
+              width={`100%`}
             />
             <Skeleton
               sx={{ bgcolor: '#21212194'}}
               variant="text"
-              duration={0.9} 
-              width={`100%`} 
+              duration={0.9}
+              width={`100%`}
             />
           </div>
         )

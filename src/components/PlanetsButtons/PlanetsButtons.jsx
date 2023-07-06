@@ -11,9 +11,7 @@ export const PlanetsButtons = () => {
   const [activeButton, setActiveButton] = useState(false);
 
   const handleChangePlanet = (planet) => {
-    if (page !== 1) {
-      setPage(1);
-    }
+    setPage(1);
     setSearch(planet.toLowerCase());
   }
 
@@ -37,7 +35,7 @@ export const PlanetsButtons = () => {
       >
           {planets.map((planet, index) => {
             return (
-              <div 
+              <div
                 className="wrapper-btn"
                 key={index}>
                 <Button

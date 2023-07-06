@@ -1,5 +1,4 @@
 import React from "react";
-import { useNASAService } from "../../../service/NASAService";
 import { Skeleton } from "@mui/material";
 
 import "./SkeletonDetails.scss";
@@ -22,7 +21,7 @@ export const SkeletonDetails = () => {
               />
             </div>
             <div className="keywords-skeleton">
-              {Array(4).fill().map((item, index) => 
+              {Array(4).fill().map((item, index) =>
                   <Skeleton
                     sx={{ bgcolor: '#21212194'}}
                     key={index}

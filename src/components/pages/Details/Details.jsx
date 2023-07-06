@@ -12,9 +12,8 @@ import { TypographyStylesProvider } from '@mantine/core';
 import "./Details.scss";
 
 export const Details = () => {
-
   const {id} = useParams();
-  const{
+  const {
     getMetaData,
     metaData,
     getAsset,

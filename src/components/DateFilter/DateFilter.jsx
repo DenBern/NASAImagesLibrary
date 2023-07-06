@@ -22,16 +22,25 @@ export const DateFilter = () => {
     setSearch,
   } = useContext(Context);
 
+  const activeFilter = () => {
+    setYearStart(startYear);
+    setYearEnd(endYear);
+    setSearchParams(`page=${1}`);
+    setPage(1);
+  }
+
+  const clearFilter = () => {
+    setYearStart();
+    setYearEnd();
+    setSearchParams(`page=${1}`);
+    setPage(1);
+    setSearch(startSearch)
+  }
+
   return (
     <div className="date-filter">
       <Button
-        onClick={() => {
-          setYearStart();
-          setYearEnd();
-          setSearchParams(`page=${1}`);
-          setPage(1);
-          setSearch(startSearch)
-        }}
+        onClick={() => clearFilter()}
         style={{
           width: '50px',
           height: '50px',
@@ -52,12 +61,7 @@ export const DateFilter = () => {
         />
       </LocalizationProvider>
       <Button
-        onClick={() => {
-          setYearStart(startYear);
-          setYearEnd(endYear);
-          setSearchParams(`page=${1}`);
-          setPage(1);
-        }}
+        onClick={() => activeFilter()}
         style={{
           width: '50px',
           height: '50px',
