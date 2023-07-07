@@ -12,5 +12,11 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 25px;
+    &.visible {
+      display: flex;
+    }
+    &.hidden {
+      display: none;
+    }
   }
 }

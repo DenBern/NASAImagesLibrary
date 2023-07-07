@@ -7,7 +7,7 @@ import "./PlanetsButtons.scss";
 
 export const PlanetsButtons = () => {
 
-  const {page, setSearch, setPage} = useContext(Context);
+  const {setSearch, setPage} = useContext(Context);
   const [activeButton, setActiveButton] = useState(false);
 
   const handleChangePlanet = (planet) => {
@@ -17,7 +17,8 @@ export const PlanetsButtons = () => {
 
   return (
     <div className="planets-button">
-      <Button variant="contained"
+      <Button
+        variant="contained"
         style={
             {
                 color: '#fff',
@@ -28,11 +29,7 @@ export const PlanetsButtons = () => {
       >
           Solar system planets
       </Button>
-      <div className="buttons"
-        style={{
-            display: `${activeButton ? 'flex' : 'none'}`,
-        }}
-      >
+      <div className={`buttons ${activeButton ? 'visible' : 'hidden'}`}>
           {planets.map((planet, index) => {
             return (
               <div
