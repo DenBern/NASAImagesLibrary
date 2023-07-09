@@ -1,0 +1,636 @@
+/*!**********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Search/Search.scss ***!
+  \**********************************************************************************************************************************************************************/
+.search-wrapper {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 32px;
+}
+.search-wrapper b {
+  background-color: rgb(49, 46, 129);
+  padding: 5px;
+  border-radius: 5px;
+}
+.search-wrapper .search-input {
+  background: transparent;
+  border: 2px solid rgba(209, 213, 219, 0.7);
+  filter: drop-shadow(0 1.5px 3px rgba(0, 0, 0, 0.05));
+  border-radius: 33px;
+  width: 505px;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  color: #fff;
+  padding: 16px 24px;
+}
+.search-wrapper .search-input .css-1moyr10-JoyInput-input {
+  color: #fff;
+}
+
+@media (min-width: 550px) and (max-width: 950px) {
+  .search-wrapper .search-input {
+    max-width: 100%;
+  }
+}
+@media (min-width: 450px) and (max-width: 549px) {
+  .search-wrapper .search-input {
+    width: 400px;
+  }
+}
+@media (min-width: 320px) and (max-width: 449px) {
+  .search-wrapper .search-input {
+    max-width: 300px;
+    padding: 8px 12px;
+  }
+}
+/*!**************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Gallery/Card/Card.scss ***!
+  \**************************************************************************************************************************************************************************/
+.card {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 256px;
+  min-height: 220px;
+}
+.card .card-img {
+  width: 256px;
+  height: 144px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 8px;
+}
+.card .card-description h3 {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: #fff;
+}
+.card .card-description .details {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 10px;
+}
+.card .card-description .details .location,
+.card .card-description .details .photographer {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.card .card-description .details .location .logo,
+.card .card-description .details .photographer .logo {
+  display: flex;
+}
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Divider/Divider.scss ***!
+  \************************************************************************************************************************************************************************/
+hr {
+  width: 100%;
+  height: 1px;
+  background-color: #818cf8;
+}
+/*!******************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/DateFilter/DateFilter.scss ***!
+  \******************************************************************************************************************************************************************************/
+.date-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  border: 1px solid #fff;
+  border-radius: 10px;
+}
+.date-filter .btn-filter {
+  width: 50px;
+  height: 50px;
+}
+.date-filter .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root,
+.date-filter .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root,
+.date-filter .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
+.date-filter .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
+  color: #fff;
+}
+.date-filter .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  max-width: 130px;
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .date-filter {
+    flex-direction: column;
+  }
+  .date-filter .btn-filter {
+    width: 25px;
+    height: 25px;
+  }
+}
+/*!********************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Skeletons/SkeletonCard/SkeletonCard.scss ***!
+  \********************************************************************************************************************************************************************************************/
+.card-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 256px;
+  height: 220px;
+}
+/*!********************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Empty/Empty.scss ***!
+  \********************************************************************************************************************************************************************/
+.empty-wrapper {
+  display: flex;
+  padding: 0 10px;
+}
+.empty-wrapper .empty-image {
+  width: 300px;
+  height: 540px;
+  background: url(assets/52e2cda5a248abd9f7e5.png) no-repeat center/contain;
+}
+.empty-wrapper .empty-text {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 20px;
+}
+.empty-wrapper .empty-text h3 {
+  font-size: 28px;
+}
+.empty-wrapper .empty-text p {
+  font-size: 20px;
+  background-color: #312E81;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+@media (max-width: 700px) and (min-width: 480px) {
+  .empty-wrapper .empty-text h3 {
+    font-size: 22px;
+  }
+  .empty-wrapper .empty-text p {
+    font-size: 16px;
+  }
+}
+@media (max-width: 479px) and (min-width: 320px) {
+  .empty-wrapper .empty-image {
+    width: 200px;
+    height: 350px;
+  }
+  .empty-wrapper .empty-text h3 {
+    font-size: 16px;
+  }
+  .empty-wrapper .empty-text p {
+    font-size: 10px;
+  }
+}
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Gallery/Gallery.scss ***!
+  \************************************************************************************************************************************************************************/
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.gallery .results {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 100%;
+  padding: 0 10px;
+}
+.gallery .results p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.gallery .results b {
+  padding: 10px;
+  background-color: #312E81;
+  border-radius: 10px;
+}
+.gallery .results .size-cards {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+}
+.gallery .cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+}
+.gallery .css-1oj2twp-MuiPagination-root {
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+@media (min-width: 550px) and (max-width: 950px) {
+  .results {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .description {
+    font-size: 40px;
+    padding: 0 10px;
+  }
+}
+@media (min-width: 320px) and (max-width: 549px) {
+  .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root {
+    padding: 0;
+  }
+  .results {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .results p {
+    font-size: 14px;
+  }
+  .description {
+    font-size: 30px;
+  }
+}
+/*!**************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/PlanetsButtons/PlanetsButtons.scss ***!
+  \**************************************************************************************************************************************************************************************/
+.planets-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  padding: 10px;
+}
+.planets-button .buttons {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 5px;
+}
+.planets-button .buttons.visible {
+  display: flex;
+}
+.planets-button .buttons.hidden {
+  display: none;
+}
+/*!************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/pages/Main/Main.scss ***!
+  \************************************************************************************************************************************************************************/
+.container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.container .header {
+  max-width: 1022px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto;
+  padding: 15px 0 32px 0;
+}
+.container .header .title-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.container .header .title-logo .title h1 {
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  padding: 30px 0;
+  line-height: 100%;
+}
+.container .header .title-logo .logo {
+  width: 74px;
+  height: 62px;
+  padding: 17px 11px;
+  background: url(assets/d74edbe09a913e688faf.svg) no-repeat center;
+}
+.container .header .description {
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", sans-serif;
+  font-style: normal;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+.container .header .description .gradient-text {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.56), rgba(255, 255, 255, 0.56)), linear-gradient(45deg, #14AFFC 0%, #7F23F7 48.96%, #FC19AD 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+@media (min-width: 550px) and (max-width: 950px) {
+  .container .header .description {
+    font-size: 50px;
+    padding: 0 10px;
+  }
+}
+@media (min-width: 320px) and (max-width: 549px) {
+  .container .header .title-logo .title h1 {
+    font-size: 18px;
+  }
+  .container .header .description {
+    font-size: 20px;
+    line-height: 25px;
+    padding: 0 10px;
+  }
+}
+/*!**************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Skeletons/SkeletonDetails/SkeletonDetails.scss ***!
+  \**************************************************************************************************************************************************************************************************/
+.details-skeleton {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  padding: 30px 10px;
+}
+.details-skeleton .main-skeleton {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: 400px;
+}
+.details-skeleton .keywords-skeleton {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 50%;
+  height: 100px;
+}
+/*!******************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/pages/Details/Details.scss ***!
+  \******************************************************************************************************************************************************************************/
+.wrapper-details {
+  width: 100%;
+  min-height: 100vh;
+  background: #312E81;
+}
+.wrapper-details .wrapper-header,
+.wrapper-details .wrapper-main {
+  max-width: 1376px;
+  margin: 0 auto;
+}
+.wrapper-details .wrapper-header header,
+.wrapper-details .wrapper-main header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+  width: 100%;
+}
+.wrapper-details .wrapper-header header .title-details,
+.wrapper-details .wrapper-main header .title-details {
+  display: flex;
+  width: 100%;
+}
+.wrapper-details .wrapper-header header .title-details h3,
+.wrapper-details .wrapper-main header .title-details h3 {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 20px;
+  color: #fff;
+  padding: 27px 5px 27px 10px;
+  text-transform: uppercase;
+  width: 100%;
+}
+.wrapper-details .wrapper-header header .title-details hr,
+.wrapper-details .wrapper-main header .title-details hr {
+  width: 1px;
+  height: 74px;
+  background-color: #818cf8;
+}
+.wrapper-details .wrapper-header header .button-back,
+.wrapper-details .wrapper-main header .button-back {
+  display: flex;
+  align-items: center;
+  border-left: 1px solid #818cf8;
+  padding-left: 15px;
+}
+.wrapper-details .wrapper-header header .button-back .css-1e6y48t-MuiButtonBase-root-MuiButton-root,
+.wrapper-details .wrapper-main header .button-back .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  color: #fff;
+}
+.wrapper-details .wrapper-header main,
+.wrapper-details .wrapper-main main {
+  font-family: "Inter", sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 32px 10px 20px 10px;
+  gap: 24px;
+  color: #fff;
+}
+.wrapper-details .wrapper-header main h4,
+.wrapper-details .wrapper-main main h4 {
+  font-size: 16px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  line-height: 24px;
+}
+.wrapper-details .wrapper-header main p,
+.wrapper-details .wrapper-main main p {
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 20px;
+  color: #fff;
+}
+.wrapper-details .wrapper-header main .img-keywords,
+.wrapper-details .wrapper-main main .img-keywords {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+.wrapper-details .wrapper-header main .img-keywords .image,
+.wrapper-details .wrapper-main main .img-keywords .image {
+  width: 100%;
+  height: auto;
+  border-radius: 11px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.wrapper-details .wrapper-header main .img-keywords .wrapper-keywords,
+.wrapper-details .wrapper-main main .img-keywords .wrapper-keywords {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 70%;
+  padding: 20px;
+}
+.wrapper-details .wrapper-header main .img-keywords .wrapper-keywords .keywords,
+.wrapper-details .wrapper-main main .img-keywords .wrapper-keywords .keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 70%;
+}
+.wrapper-details .wrapper-header main .img-keywords .wrapper-keywords .keywords .keyword,
+.wrapper-details .wrapper-main main .img-keywords .wrapper-keywords .keywords .keyword {
+  border: 1px solid #fff;
+  padding: 5px;
+}
+.wrapper-details .wrapper-header main .metadata,
+.wrapper-details .wrapper-main main .metadata {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 30%;
+}
+.wrapper-details .wrapper-header main .metadata .photographer,
+.wrapper-details .wrapper-header main .metadata .date-created,
+.wrapper-details .wrapper-main main .metadata .photographer,
+.wrapper-details .wrapper-main main .metadata .date-created {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper-details .wrapper-header main .metadata h5,
+.wrapper-details .wrapper-main main .metadata h5 {
+  font-size: 14px;
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  line-height: 20px;
+  color: #d1d5db;
+  padding-right: 10px;
+}
+.wrapper-details .wrapper-header main .metadata .wrapper-description,
+.wrapper-details .wrapper-main main .metadata .wrapper-description {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 10px;
+}
+.wrapper-details .wrapper-header main .metadata .wrapper-description .description,
+.wrapper-details .wrapper-main main .metadata .wrapper-description .description {
+  font-size: 16px;
+  gap: 15px;
+  max-width: 90%;
+}
+.wrapper-details .wrapper-header main .metadata .wrapper-description .text-descr,
+.wrapper-details .wrapper-main main .metadata .wrapper-description .text-descr {
+  color: #fff;
+}
+
+@media (min-width: 600px) and (max-width: 1100px) {
+  .wrapper-details .wrapper-main main {
+    display: flex;
+    flex-direction: column;
+  }
+  .wrapper-details .wrapper-main main .img-keywords {
+    width: 100%;
+    align-items: center;
+  }
+  .wrapper-details .wrapper-main main .img-keywords .image {
+    width: 70%;
+  }
+  .wrapper-details .wrapper-main main .img-keywords .wrapper-keywords {
+    width: 100%;
+  }
+  .wrapper-details .wrapper-main main .img-keywords .wrapper-keywords .keywords {
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .wrapper-details .wrapper-main main .metadata {
+    width: 100%;
+  }
+}
+@media (min-width: 320px) and (max-width: 599px) {
+  .wrapper-details .wrapper-header header .title-details h3 {
+    font-size: 14px;
+    padding: 7px;
+  }
+  .wrapper-details .wrapper-main main {
+    gap: 5px;
+  }
+  .wrapper-details .wrapper-main main .img-keywords {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+  .wrapper-details .wrapper-main main .img-keywords .image {
+    width: 80%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
+  .wrapper-details .wrapper-main main .img-keywords .wrapper-keywords {
+    width: 100%;
+    padding: 10px;
+  }
+  .wrapper-details .wrapper-main main .img-keywords .wrapper-keywords .keywords {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .wrapper-details .wrapper-main main .img-keywords .wrapper-keywords .keywords .keyword {
+    font-size: 10px;
+  }
+  .wrapper-details .wrapper-main main .metadata {
+    width: 100%;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  .wrapper-details .wrapper-main main h4 {
+    font-size: 14px;
+  }
+  .wrapper-details .wrapper-main main .metadata h5 {
+    font-size: 12px;
+  }
+  .wrapper-details .wrapper-main main .metadata .wrapper-description p {
+    font-size: 10px;
+  }
+}
+/*!****************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/App/App.scss ***!
+  \****************************************************************************************************************************************************************/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: linear-gradient(45deg, #A5B4FC 0%, #0B3D91 48.96%, #312E81 100%) no-repeat;
+}
+body .wrapper {
+  color: #fff;
+}
+body a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: #fff;
+}
+
+/*# sourceMappingURL=main.7536442050d607e26f18.css.map*/
