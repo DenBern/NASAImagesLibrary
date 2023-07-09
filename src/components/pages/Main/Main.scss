@@ -59,5 +59,32 @@
     }
 }
 
-@media (min-width: 600px) and (max-width: 860px) {
+@media (min-width: 550px) and (max-width: 950px) {
+    .container {
+        .header {
+            .description {
+                font-size: 50px;
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+@media (min-width: 320px) and (max-width: 549px) {
+    .container {
+        .header {
+            .title-logo {
+                .title {
+                    h1 {
+                        font-size: 18px;
+                    }
+                }
+            }
+            .description {
+                font-size: 20px;
+                line-height: 25px;
+                padding: 0 10px;
+            }
+        }
+    }
 }

@@ -18,25 +18,9 @@ export const Search = () => {
   return (
     <div className="search-wrapper">
         <Input
+          className="search-input"
           onChange={e => setValue(e.target.value)}
           value={value}
-          style={
-            {
-              background: 'transparent',
-              border: '2px solid rgba(209, 213, 219, 0.7)',
-              filter: 'drop-shadow(0 1.5px 3px rgba(0, 0, 0, 0.05))',
-              borderRadius: '33px',
-              width: '505px',
-
-              fontFamily: 'Inter, sans-serif',
-              fontStyle: 'normal',
-              fontWeight: '400',
-              fontSize: '24px',
-              lineHeight: '32px',
-              color: '#fff',
-              padding: '16px 24px',
-            }
-          }
           placeholder="Type in here…"
           endDecorator={
               <Button

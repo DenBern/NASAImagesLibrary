@@ -13,4 +13,49 @@
     padding: 5px;
     border-radius: 5px;
   }
+
+  .search-input {
+    background: transparent;
+    border: 2px solid rgba(209, 213, 219, 0.7);
+    filter: drop-shadow(0 1.5px 3px rgba(0, 0, 0, 0.05));
+    border-radius: 33px;
+    width: 505px;
+
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    color: #fff;
+    padding: 16px 24px;
+
+    .css-1moyr10-JoyInput-input {
+      color: #fff;
+    }
+  }
+}
+
+@media (min-width: 550px) and (max-width: 950px) {
+  .search-wrapper {
+    .search-input {
+      max-width: 100%;
+    }
+  }
+}
+
+@media (min-width: 450px) and (max-width: 549px) {
+  .search-wrapper {
+    .search-input {
+      width: 400px;
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 449px) {
+  .search-wrapper {
+    .search-input {
+      max-width: 300px;
+      padding: 8px 12px;
+    }
+  }
 }

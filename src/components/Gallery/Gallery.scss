@@ -42,3 +42,34 @@
     padding-bottom: 20px;
   }
 }
+
+@media (min-width: 550px) and (max-width: 950px) {
+  .results {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .description {
+    font-size: 40px;
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 549px) {
+  .css-yuzg60-MuiButtonBase-root-MuiPaginationItem-root {
+      padding: 0;
+    }
+  .results {
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 10px;
+      p {
+        font-size: 14px;
+      }
+  }
+
+  .description {
+    font-size: 30px;
+  }
+}

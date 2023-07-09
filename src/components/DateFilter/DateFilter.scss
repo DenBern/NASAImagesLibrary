@@ -6,6 +6,11 @@
   border: 1px solid #fff;
   border-radius: 10px;
 
+  .btn-filter {
+    width: 50px;
+    height: 50px;
+  }
+
   .css-o9k5xi-MuiInputBase-root-MuiOutlinedInput-root,
   .css-1jy569b-MuiFormLabel-root-MuiInputLabel-root,
   .css-14s5rfu-MuiFormLabel-root-MuiInputLabel-root,
@@ -15,5 +20,16 @@
 
   .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
     max-width: 130px;
+  }
+}
+
+@media (max-width: 480px) and (min-width: 320px) {
+  .date-filter {
+    flex-direction: column;
+
+    .btn-filter {
+      width: 25px;
+      height: 25px;
+    }
   }
 }

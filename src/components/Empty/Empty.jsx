@@ -1,12 +1,9 @@
-import React, { useContext } from "react";
-import { Button } from "@mui/joy";
-import { Context } from "../../context/Context.jsx";
+import React from "react";
 
 import './Empty.scss';
 
 export const Empty = (props) => {
   const {errorItems} = props;
-  const {setSearch, startSearch} = useContext(Context);
   return (
     <div className="empty-wrapper">
       <div className="empty-image"/>
@@ -14,7 +11,7 @@ export const Empty = (props) => {
         <h3>
           Ooops !<br/>
           Houston, <br/>
-          we have a problem !
+          we have a problem!
         </h3>
         <p>
           {!errorItems

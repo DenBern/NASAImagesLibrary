@@ -40,11 +40,8 @@ export const DateFilter = () => {
   return (
     <div className="date-filter">
       <Button
+        className="btn-filter"
         onClick={() => clearFilter()}
-        style={{
-          width: '50px',
-          height: '50px',
-        }}
       >
         <DeleteIcon/>
       </Button>
@@ -61,11 +58,8 @@ export const DateFilter = () => {
         />
       </LocalizationProvider>
       <Button
+        className="btn-filter"
         onClick={() => activeFilter()}
-        style={{
-          width: '50px',
-          height: '50px',
-        }}
       >
         <SearchIcon/>
       </Button>
