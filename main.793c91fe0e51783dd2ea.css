@@ -11,7 +11,7 @@
   padding-top: 32px;
 }
 .search-wrapper b {
-  background-color: rgb(49, 46, 129);
+  background-color: #096BDE;
   padding: 5px;
   border-radius: 5px;
 }
@@ -104,12 +104,19 @@ hr {
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/DateFilter/DateFilter.scss ***!
   \******************************************************************************************************************************************************************************/
 .date-filter {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 60px 270px 60px;
+  justify-items: center;
+  grid-gap: 10px;
   gap: 10px;
   padding: 15px;
   border: 1px solid #fff;
   border-radius: 10px;
+  border-color: #096BDE;
+}
+.date-filter .date-pickers {
+  display: flex;
+  gap: 10px;
 }
 .date-filter .btn-filter {
   width: 50px;
@@ -123,13 +130,27 @@ hr {
 }
 .date-filter .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
   max-width: 130px;
+  border-color: #096BDE;
 }
 
 @media (max-width: 480px) and (min-width: 320px) {
   .date-filter {
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-items: center;
   }
-  .date-filter .btn-filter {
+  .date-filter .date-pickers {
+    grid-column: 1/span 2;
+  }
+  .date-filter .btn-filter-search {
+    grid-column: 1;
+    grid-row: 2;
+    width: 25px;
+    height: 25px;
+  }
+  .date-filter .btn-filter-clear {
+    grid-column: 2;
+    grid-row: 2;
     width: 25px;
     height: 25px;
   }
@@ -220,7 +241,7 @@ hr {
 }
 .gallery .results b {
   padding: 10px;
-  background-color: #312E81;
+  background-color: #096BDE;
   border-radius: 10px;
 }
 .gallery .results .size-cards {
@@ -263,6 +284,9 @@ hr {
   .results p {
     font-size: 14px;
   }
+  .results .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+    padding: 5px 10px;
+  }
   .description {
     font-size: 30px;
   }
@@ -277,6 +301,9 @@ hr {
   gap: 15px;
   width: 100%;
   padding: 10px;
+}
+.planets-button .css-yl4jce-JoyButton-root {
+  background-color: #096BDE;
 }
 .planets-button .buttons {
   width: 100%;
@@ -633,4 +660,4 @@ body a {
   color: #fff;
 }
 
-/*# sourceMappingURL=main.7536442050d607e26f18.css.map*/
+/*# sourceMappingURL=main.793c91fe0e51783dd2ea.css.map*/
