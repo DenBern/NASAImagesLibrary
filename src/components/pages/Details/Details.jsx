@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect, useSearchParams } from "react";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useNASAService } from "../../../service/NASAService";
@@ -10,6 +10,7 @@ import { Skeleton } from "@mui/material";
 import { TypographyStylesProvider } from '@mantine/core';
 
 import "./Details.scss";
+import { Context } from "../../../context/Context.jsx";
 
 export const Details = () => {
   const {id} = useParams();
@@ -20,6 +21,7 @@ export const Details = () => {
     asset,
     loadingMetaData,
     loadingAsset} = useNASAService();
+
 
   useEffect(() => {
     getAsset(id);
@@ -46,7 +48,7 @@ export const Details = () => {
             </div>
               <div className="button-back">
                 <Link
-                  to={`/main`}
+                  to={`/`}
                   key={id}
                 >
                   <Button
