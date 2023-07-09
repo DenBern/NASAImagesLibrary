@@ -49479,7 +49479,7 @@ const DateFilter = () => {
     setYearEnd();
     setSearchParams(`page=${1}`);
     setPage(1);
-    setSearch(startSearch);
+    setSearch(startSearch.toLowerCase());
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "date-filter"
@@ -49828,6 +49828,9 @@ const Search = () => {
     setPage
   } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_Context_jsx__WEBPACK_IMPORTED_MODULE_1__.Context);
   const [value, setValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    setValue(search);
+  }, [search]);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "search-wrapper"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_joy__WEBPACK_IMPORTED_MODULE_3__["default"], {

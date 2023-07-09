@@ -92,6 +92,15 @@
 .card .card-description .details .photographer .logo {
   display: flex;
 }
+
+@media (max-width: 549px) and (min-width: 320px) {
+  .card {
+    width: 125px;
+  }
+  .card .card-img {
+    width: 125px;
+  }
+}
 /*!************************************************************************************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Divider/Divider.scss ***!
   \************************************************************************************************************************************************************************/
@@ -660,4 +669,4 @@ body a {
   color: #fff;
 }
 
-/*# sourceMappingURL=main.793c91fe0e51783dd2ea.css.map*/
+/*# sourceMappingURL=main.ac99e735645e7308f772.css.map*/
