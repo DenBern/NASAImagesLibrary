@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://DenBern.github.io/NASAImagesLibrary",
+  "homepage": "https://DenBern.github.io/NASAImagesLibrary/#/main",
   "scripts": {
     "start": "cross-env SERVE=true webpack serve",
     "build": "webpack",
