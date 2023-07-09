@@ -33,7 +33,7 @@ export const DateFilter = () => {
     setYearEnd();
     setSearchParams(`page=${1}`);
     setPage(1);
-    setSearch(startSearch)
+    setSearch(startSearch.toLowerCase())
   }
 
   return (

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/Context.jsx";
 import { Input, Button } from "@mui/joy";
 import SearchIcon from "@mui/icons-material/Search";
@@ -14,6 +14,10 @@ export const Search = () => {
     setPage} = useContext(Context);
 
   const [value, setValue] = useState('');
+
+  useEffect(() => {
+    setValue(search);
+  } ,[search])
 
   return (
     <div className="search-wrapper">
