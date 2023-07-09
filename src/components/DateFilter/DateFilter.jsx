@@ -3,14 +3,13 @@ import { Context } from "../../context/Context.jsx";
 import { Button } from "@mui/joy";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { DatePicker } from "@mui/x-date-pickers";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
+import { DesktopDatePicker } from "@mui/x-date-pickers";
 
 import "./DateFilter.scss";
 
 export const DateFilter = () => {
-
   const [startYear, setStartYear] = useState();
   const [endYear, setEndYear] = useState();
   const {
@@ -40,25 +39,35 @@ export const DateFilter = () => {
   return (
     <div className="date-filter">
       <Button
-        className="btn-filter"
+        className="btn-filter-search"
         onClick={() => clearFilter()}
       >
         <DeleteIcon/>
       </Button>
-      <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker
-          label={"Year start"}
-          views={['year']}
-          onChange={(value) => setStartYear(value.$y)}
-        />
-        <DatePicker
-          label={"Year end"}
-          views={['year']}
-          onChange={(value) => setEndYear(value.$y)}
-        />
-      </LocalizationProvider>
+      <div
+        style={
+          {
+            display: "flex",
+            gap: "10px"
+          }
+        }
+        className="date-pickers">
+        <LocalizationProvider dateAdapter={AdapterDayjs}>
+          <DesktopDatePicker
+            label={"Year start"}
+            views={['year']}
+            onChange={(value) => setStartYear(value.$y)}
+            error={startYear > endYear}
+          />
+          <DesktopDatePicker
+            label={"Year end"}
+            views={['year']}
+            onChange={(value) => setEndYear(value.$y)}
+          />
+        </LocalizationProvider>
+      </div>
       <Button
-        className="btn-filter"
+        className="btn-filter-clear"
         onClick={() => activeFilter()}
       >
         <SearchIcon/>

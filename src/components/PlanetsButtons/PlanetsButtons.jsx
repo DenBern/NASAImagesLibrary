@@ -22,7 +22,6 @@ export const PlanetsButtons = () => {
         style={
             {
                 color: '#fff',
-                background: '#312E81',
             }
         }
         onClick={() => setActiveButton(!activeButton)}

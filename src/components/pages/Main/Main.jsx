@@ -6,7 +6,6 @@ import { PlanetsButtons } from '../../PlanetsButtons/PlanetsButtons.jsx';
 import "./Main.scss";
 
 export const Main = () => {
-
     return (
         <div className="wrapper">
             <div className="container">

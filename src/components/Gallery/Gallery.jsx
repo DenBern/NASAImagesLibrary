@@ -37,7 +37,7 @@ export const Gallery = () => {
 
     const handleChangeSize = (e) => {
         setPage(1);
-        setSearchParams(`page=${1}`)
+        setSearchParams(`page=${1}`);
         setPageSize(e.target.value);
     };
 
@@ -64,7 +64,7 @@ export const Gallery = () => {
                         style={
                             {
                                 color: '#fff',
-                                background: '#312E81',
+                                background: '#096BDE',
                             }
                         }
                         >
