@@ -49441,13 +49441,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _context_Context_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/Context.jsx */ "./src/context/Context.jsx");
-/* harmony import */ var _mui_joy__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @mui/joy */ "./node_modules/@mui/joy/Button/Button.js");
-/* harmony import */ var _mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/x-date-pickers */ "./node_modules/@mui/x-date-pickers/LocalizationProvider/LocalizationProvider.js");
-/* harmony import */ var _mui_x_date_pickers_AdapterDayjs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/x-date-pickers/AdapterDayjs */ "./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js");
-/* harmony import */ var _mui_icons_material_Delete__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/icons-material/Delete */ "./node_modules/@mui/icons-material/Delete.js");
-/* harmony import */ var _mui_icons_material_Search__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/icons-material/Search */ "./node_modules/@mui/icons-material/Search.js");
-/* harmony import */ var _mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/x-date-pickers */ "./node_modules/@mui/x-date-pickers/DesktopDatePicker/DesktopDatePicker.js");
-/* harmony import */ var _DateFilter_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./DateFilter.scss */ "./src/components/DateFilter/DateFilter.scss");
+/* harmony import */ var _mui_joy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/joy */ "./node_modules/@mui/joy/Button/Button.js");
+/* harmony import */ var _mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/x-date-pickers */ "./node_modules/@mui/x-date-pickers/LocalizationProvider/LocalizationProvider.js");
+/* harmony import */ var _mui_x_date_pickers_AdapterDayjs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/x-date-pickers/AdapterDayjs */ "./node_modules/@mui/x-date-pickers/AdapterDayjs/AdapterDayjs.js");
+/* harmony import */ var _mui_icons_material_Delete__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/icons-material/Delete */ "./node_modules/@mui/icons-material/Delete.js");
+/* harmony import */ var _mui_icons_material_Search__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/icons-material/Search */ "./node_modules/@mui/icons-material/Search.js");
+/* harmony import */ var _mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/x-date-pickers */ "./node_modules/@mui/x-date-pickers/DesktopDatePicker/DesktopDatePicker.js");
+/* harmony import */ var _service_NASAService_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../service/NASAService.js */ "./src/service/NASAService.js");
+/* harmony import */ var _DateFilter_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DateFilter.scss */ "./src/components/DateFilter/DateFilter.scss");
+
 
 
 
@@ -49458,55 +49460,64 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const DateFilter = () => {
-  const [startYear, setStartYear] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)();
-  const [endYear, setEndYear] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)();
+  const [startYearValue, setStartYearValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)();
+  const [endYearValue, setEndYearValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)();
   const {
+    startYear,
+    currentYear
+  } = (0,_service_NASAService_js__WEBPACK_IMPORTED_MODULE_2__.useNASAService)();
+  const {
+    yearStart,
+    yearEnd,
     setYearStart,
     setYearEnd,
     setPage,
-    setSearchParams,
-    startSearch,
-    setSearch
+    setSearchParams
   } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_Context_jsx__WEBPACK_IMPORTED_MODULE_1__.Context);
   const activeFilter = () => {
-    setYearStart(startYear);
-    setYearEnd(endYear);
+    setYearStart(startYearValue);
+    setYearEnd(endYearValue);
     setSearchParams(`page=${1}`);
     setPage(1);
   };
   const clearFilter = () => {
-    setYearStart();
-    setYearEnd();
+    setYearStart(startYear);
+    setYearEnd(currentYear);
     setSearchParams(`page=${1}`);
     setPage(1);
-    setSearch(startSearch.toLowerCase());
   };
+
+  // useEffect(() => {
+  //   console.log('effect')
+  //   setStartYearValue('');
+  //   setYearEnd('');
+  // }, [yearStart, yearEnd])
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "date-filter"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_joy__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    className: "btn-filter-search",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_joy__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    className: "btn-filter-clear",
     onClick: () => clearFilter()
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_Delete__WEBPACK_IMPORTED_MODULE_4__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_Delete__WEBPACK_IMPORTED_MODULE_5__["default"], null)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     style: {
       display: "flex",
       gap: "10px"
     },
     className: "date-pickers"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_5__.LocalizationProvider, {
-    dateAdapter: _mui_x_date_pickers_AdapterDayjs__WEBPACK_IMPORTED_MODULE_6__.AdapterDayjs
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_7__.DesktopDatePicker, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_6__.LocalizationProvider, {
+    dateAdapter: _mui_x_date_pickers_AdapterDayjs__WEBPACK_IMPORTED_MODULE_7__.AdapterDayjs
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_8__.DesktopDatePicker, {
     label: "Year start",
     views: ['year'],
-    onChange: value => setStartYear(value.$y),
-    error: startYear > endYear
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_7__.DesktopDatePicker, {
+    onChange: value => setStartYearValue(value.$y)
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_8__.DesktopDatePicker, {
     label: "Year end",
     views: ['year'],
-    onChange: value => setEndYear(value.$y)
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_joy__WEBPACK_IMPORTED_MODULE_3__["default"], {
-    className: "btn-filter-clear",
+    onChange: value => setEndYearValue(value.$y)
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_joy__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    className: "btn-filter-search",
     onClick: () => activeFilter()
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_Search__WEBPACK_IMPORTED_MODULE_8__["default"], null)));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_Search__WEBPACK_IMPORTED_MODULE_9__["default"], null)));
 };
 
 /***/ }),
