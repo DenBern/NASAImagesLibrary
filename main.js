@@ -30786,12 +30786,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _context_Context_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../context/Context.jsx */ "./src/context/Context.jsx");
+/* harmony import */ var _service_NASAService_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../service/NASAService.js */ "./src/service/NASAService.js");
+/* harmony import */ var _context_Context_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../context/Context.jsx */ "./src/context/Context.jsx");
 /* harmony import */ var _mui_joy__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @mui/joy */ "./node_modules/@mui/joy/Button/Button.js");
 /* harmony import */ var _mui_joy__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @mui/joy */ "./node_modules/@mui/joy/Input/Input.js");
 /* harmony import */ var _mui_icons_material_Delete__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @mui/icons-material/Delete */ "./node_modules/@mui/icons-material/Delete.js");
 /* harmony import */ var _mui_icons_material_Search__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @mui/icons-material/Search */ "./node_modules/@mui/icons-material/Search.js");
-/* harmony import */ var _service_NASAService_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../service/NASAService.js */ "./src/service/NASAService.js");
 /* harmony import */ var _mui_icons_material_CalendarMonthOutlined__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/icons-material/CalendarMonthOutlined */ "./node_modules/@mui/icons-material/CalendarMonthOutlined.js");
 /* harmony import */ var _DateFilter_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./DateFilter.scss */ "./src/components/DateFilter/DateFilter.scss");
 
@@ -30806,18 +30806,26 @@ const DateFilter = () => {
   const {
     startYear,
     currentYear
-  } = (0,_service_NASAService_js__WEBPACK_IMPORTED_MODULE_2__.useNASAService)();
+  } = (0,_service_NASAService_js__WEBPACK_IMPORTED_MODULE_1__.useNASAService)();
   const {
     setYearStart,
     setYearEnd,
     setPage,
     setSearchParams
-  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_Context_jsx__WEBPACK_IMPORTED_MODULE_1__.Context);
+  } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_Context_jsx__WEBPACK_IMPORTED_MODULE_2__.Context);
   const [startYearValue, setStartYearValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
   const [endYearValue, setEndYearValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
   const activeFilter = () => {
-    setYearStart(startYearValue);
-    setYearEnd(endYearValue);
+    if (startYearValue === '') {
+      setYearStart(startYear);
+      setYearEnd(endYearValue);
+    } else if (endYearValue === '') {
+      setYearStart(startYearValue);
+      setYearEnd(currentYear);
+    } else {
+      setYearStart(startYearValue);
+      setYearEnd(endYearValue);
+    }
     setSearchParams(`page=${1}`);
     setPage(1);
   };
@@ -30841,6 +30849,7 @@ const DateFilter = () => {
       gap: "10px"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_joy__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    maxLength: 4,
     value: startYearValue,
     onChange: e => setStartYearValue(e.target.value),
     variant: "outlined",
@@ -30908,23 +30917,23 @@ const Divider = () => {
 
 /***/ }),
 
-/***/ "./src/components/Empty/Empty.jsx":
-/*!****************************************!*\
-  !*** ./src/components/Empty/Empty.jsx ***!
-  \****************************************/
+/***/ "./src/components/EmptyError/EmptyError.jsx":
+/*!**************************************************!*\
+  !*** ./src/components/EmptyError/EmptyError.jsx ***!
+  \**************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   Empty: () => (/* binding */ Empty)
+/* harmony export */   EmptyError: () => (/* binding */ EmptyError)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _Empty_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Empty.scss */ "./src/components/Empty/Empty.scss");
+/* harmony import */ var _EmptyError_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmptyError.scss */ "./src/components/EmptyError/EmptyError.scss");
 
 
-const Empty = props => {
+const EmptyError = props => {
   const {
     errorItems
   } = props;
@@ -30934,7 +30943,7 @@ const Empty = props => {
     className: "empty-image"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "empty-text"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Ooops !", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Houston, ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "we have a problem!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, !errorItems ? 'Results not found.' : 'Something went wrong.')));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Ooops !", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Houston, ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "we have a problem!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, !errorItems ? 'Results not found.' : 'Something went wrong. Try again.')));
 };
 
 /***/ }),
@@ -31021,7 +31030,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/MenuItem/MenuItem.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Pagination/Pagination.js");
 /* harmony import */ var _Skeletons_SkeletonCard_SkeletonCard_jsx__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../Skeletons/SkeletonCard/SkeletonCard.jsx */ "./src/components/Skeletons/SkeletonCard/SkeletonCard.jsx");
-/* harmony import */ var _Empty_Empty_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../Empty/Empty.jsx */ "./src/components/Empty/Empty.jsx");
+/* harmony import */ var _EmptyError_EmptyError_jsx__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../EmptyError/EmptyError.jsx */ "./src/components/EmptyError/EmptyError.jsx");
 /* harmony import */ var _Gallery_scss__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./Gallery.scss */ "./src/components/Gallery/Gallery.scss");
 
 
@@ -31062,6 +31071,7 @@ const Gallery = () => {
     getItems(search, page, pageSize, yearStart, yearEnd);
   }, [search, pageSize, page, yearStart, yearEnd]);
   const loadedItems = !loadingItems && !errorItems && items;
+  const notFoundResults = !totalSearch && !loadingItems && !errorItems;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
     className: "gallery"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
@@ -31089,7 +31099,9 @@ const Gallery = () => {
     value: 100
   }, "100")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Divider_Divider_jsx__WEBPACK_IMPORTED_MODULE_3__.Divider, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "cards"
-  }, !totalSearch && !loadingItems && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Empty_Empty_jsx__WEBPACK_IMPORTED_MODULE_7__.Empty, {
+  }, notFoundResults && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_EmptyError_EmptyError_jsx__WEBPACK_IMPORTED_MODULE_7__.EmptyError, {
+    errorItems: errorItems
+  }), errorItems && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_EmptyError_EmptyError_jsx__WEBPACK_IMPORTED_MODULE_7__.EmptyError, {
     errorItems: errorItems
   }), loadingItems && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Skeletons_SkeletonCard_SkeletonCard_jsx__WEBPACK_IMPORTED_MODULE_6__.SkeletonCard, {
     pageSize: pageSize
@@ -31101,7 +31113,7 @@ const Gallery = () => {
     title: item.data[0].title,
     date: item.data[0].date_created,
     id: item.data[0].nasa_id
-  }))), totalSearch > pageSize ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], {
+  }))), totalSearch > pageSize && !errorItems ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], {
     page: page,
     count: pages,
     onChange: (_, page) => {
@@ -31357,13 +31369,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* harmony import */ var _service_NASAService__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../service/NASAService */ "./src/service/NASAService.js");
 /* harmony import */ var _Divider_Divider_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../Divider/Divider.jsx */ "./src/components/Divider/Divider.jsx");
-/* harmony import */ var _Skeletons_SkeletonDetails_SkeletonDetails_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../Skeletons/SkeletonDetails/SkeletonDetails.jsx */ "./src/components/Skeletons/SkeletonDetails/SkeletonDetails.jsx");
+/* harmony import */ var _EmptyError_EmptyError_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../EmptyError/EmptyError.jsx */ "./src/components/EmptyError/EmptyError.jsx");
+/* harmony import */ var _Skeletons_SkeletonDetails_SkeletonDetails_jsx__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../Skeletons/SkeletonDetails/SkeletonDetails.jsx */ "./src/components/Skeletons/SkeletonDetails/SkeletonDetails.jsx");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Button/Button.js");
 /* harmony import */ var _mui_icons_material_Reply__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/icons-material/Reply */ "./node_modules/@mui/icons-material/Reply.js");
 /* harmony import */ var _mui_material__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @mui/material */ "./node_modules/@mui/material/Skeleton/Skeleton.js");
 /* harmony import */ var _mantine_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mantine/core */ "./node_modules/@mantine/core/esm/TypographyStylesProvider/TypographyStylesProvider.js");
-/* harmony import */ var _Details_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Details.scss */ "./src/components/pages/Details/Details.scss");
-/* harmony import */ var _context_Context_jsx__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../context/Context.jsx */ "./src/context/Context.jsx");
+/* harmony import */ var _Details_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Details.scss */ "./src/components/pages/Details/Details.scss");
 
 
 
@@ -31386,7 +31398,8 @@ const Details = () => {
     getAsset,
     asset,
     loadingMetaData,
-    loadingAsset
+    loadingAsset,
+    errorMetaData
   } = (0,_service_NASAService__WEBPACK_IMPORTED_MODULE_1__.useNASAService)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     getAsset(id);
@@ -31414,7 +31427,7 @@ const Details = () => {
     startIcon: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_Reply__WEBPACK_IMPORTED_MODULE_10__["default"], null)
   }, "Back"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Divider_Divider_jsx__WEBPACK_IMPORTED_MODULE_2__.Divider, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "wrapper-main"
-  }, loadingMetaData ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Skeletons_SkeletonDetails_SkeletonDetails_jsx__WEBPACK_IMPORTED_MODULE_3__.SkeletonDetails, null) : loaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
+  }, loadingMetaData ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_Skeletons_SkeletonDetails_SkeletonDetails_jsx__WEBPACK_IMPORTED_MODULE_4__.SkeletonDetails, null) : loaded ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("main", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("section", {
     className: "img-keywords"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("img", {
     className: "image",
@@ -32034,10 +32047,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/components/Empty/Empty.scss":
-/*!*****************************************!*\
-  !*** ./src/components/Empty/Empty.scss ***!
-  \*****************************************/
+/***/ "./src/components/EmptyError/EmptyError.scss":
+/*!***************************************************!*\
+  !*** ./src/components/EmptyError/EmptyError.scss ***!
+  \***************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";

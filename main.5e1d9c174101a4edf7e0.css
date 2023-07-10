@@ -179,9 +179,9 @@ hr {
   width: 256px;
   height: 220px;
 }
-/*!********************************************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/Empty/Empty.scss ***!
-  \********************************************************************************************************************************************************************/
+/*!******************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./node_modules/postcss-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./src/components/EmptyError/EmptyError.scss ***!
+  \******************************************************************************************************************************************************************************/
 .empty-wrapper {
   display: flex;
   padding: 0 10px;
@@ -674,4 +674,4 @@ body a {
   color: #fff;
 }
 
-/*# sourceMappingURL=main.02bf35f665e5349b3918.css.map*/
+/*# sourceMappingURL=main.5e1d9c174101a4edf7e0.css.map*/
