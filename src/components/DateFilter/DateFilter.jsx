@@ -1,45 +1,53 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../../context/Context.jsx";
 import { Button } from "@mui/joy";
 import { LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
 import { DesktopDatePicker } from "@mui/x-date-pickers";
+import { useNASAService } from "../../service/NASAService.js";
 
 import "./DateFilter.scss";
 
 export const DateFilter = () => {
-  const [startYear, setStartYear] = useState();
-  const [endYear, setEndYear] = useState();
+  const [startYearValue, setStartYearValue] = useState();
+  const [endYearValue, setEndYearValue] = useState();
+
+  const {startYear, currentYear} = useNASAService();
   const {
+    yearStart,
+    yearEnd,
     setYearStart,
     setYearEnd,
     setPage,
     setSearchParams,
-    startSearch,
-    setSearch,
   } = useContext(Context);
 
   const activeFilter = () => {
-    setYearStart(startYear);
-    setYearEnd(endYear);
+    setYearStart(startYearValue);
+    setYearEnd(endYearValue);
     setSearchParams(`page=${1}`);
     setPage(1);
   }
 
   const clearFilter = () => {
-    setYearStart();
-    setYearEnd();
+    setYearStart(startYear);
+    setYearEnd(currentYear);
     setSearchParams(`page=${1}`);
     setPage(1);
-    setSearch(startSearch.toLowerCase())
   }
+
+  // useEffect(() => {
+  //   console.log('effect')
+  //   setStartYearValue('');
+  //   setYearEnd('');
+  // }, [yearStart, yearEnd])
 
   return (
     <div className="date-filter">
       <Button
-        className="btn-filter-search"
+        className="btn-filter-clear"
         onClick={() => clearFilter()}
       >
         <DeleteIcon/>
@@ -51,23 +59,23 @@ export const DateFilter = () => {
             gap: "10px"
           }
         }
-        className="date-pickers">
+        className="date-pickers"
+      >
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DesktopDatePicker
-            label={"Year start"}
-            views={['year']}
-            onChange={(value) => setStartYear(value.$y)}
-            error={startYear > endYear}
-          />
+        <DesktopDatePicker
+          label="Year start"
+          views={['year']}
+          onChange={(value) => setStartYearValue(value.$y)}
+        />
           <DesktopDatePicker
             label={"Year end"}
             views={['year']}
-            onChange={(value) => setEndYear(value.$y)}
+            onChange={(value) => setEndYearValue(value.$y)}
           />
         </LocalizationProvider>
       </div>
       <Button
-        className="btn-filter-clear"
+        className="btn-filter-search"
         onClick={() => activeFilter()}
       >
         <SearchIcon/>
