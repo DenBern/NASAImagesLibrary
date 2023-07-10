@@ -39,10 +39,11 @@
 @media (max-width: 480px) and (min-width: 320px) {
   .date-filter {
     display: grid;
-    grid-template-columns: 300px auto;
+    grid-template-columns: 185px auto;
     justify-items: center;
+    padding: 10px 5px;
 
-    .date-pickers {
+    .date-inputs {
       grid-column: 1 / span 3;
     }
     .btn-filter-search {
