@@ -1,8 +1,8 @@
 import React from "react";
 
-import './Empty.scss';
+import './EmptyError.scss';
 
-export const Empty = (props) => {
+export const EmptyError = (props) => {
   const {errorItems} = props;
   return (
     <div className="empty-wrapper">
@@ -16,7 +16,7 @@ export const Empty = (props) => {
         <p>
           {!errorItems
             ? 'Results not found.'
-            : 'Something went wrong.'
+            : 'Something went wrong. Try again.'
           }
         </p>
       </div>

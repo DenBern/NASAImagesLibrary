@@ -88,7 +88,7 @@ export const useNASAService = () => {
         loadingItems,
         errorItems,
         totalSearch,
-        currentYear, 
+        currentYear,
         getAsset,
         asset,
         loadingAsset,

@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 import { useNASAService } from "../../../service/NASAService";
 import { Divider } from "../../Divider/Divider.jsx";
+import { EmptyError } from "../../EmptyError/EmptyError.jsx";
 import { SkeletonDetails } from "../../Skeletons/SkeletonDetails/SkeletonDetails.jsx";
 import { Button } from "@mui/material";
 import ReplyIcon from '@mui/icons-material/Reply';
@@ -10,7 +11,6 @@ import { Skeleton } from "@mui/material";
 import { TypographyStylesProvider } from '@mantine/core';
 
 import "./Details.scss";
-import { Context } from "../../../context/Context.jsx";
 
 export const Details = () => {
   const {id} = useParams();
@@ -20,8 +20,8 @@ export const Details = () => {
     getAsset,
     asset,
     loadingMetaData,
-    loadingAsset} = useNASAService();
-
+    loadingAsset,
+    errorMetaData} = useNASAService();
 
   useEffect(() => {
     getAsset(id);

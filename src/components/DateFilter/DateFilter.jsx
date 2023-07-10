@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
+import { useNASAService } from "../../service/NASAService.js";
 import { Context } from "../../context/Context.jsx";
 import { Button, Input } from "@mui/joy";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
-import { useNASAService } from "../../service/NASAService.js";
 import CalendarMonthOutlinedIcon from '@mui/icons-material/CalendarMonthOutlined';
 
 import "./DateFilter.scss";
@@ -20,10 +20,17 @@ export const DateFilter = () => {
   const [startYearValue, setStartYearValue] = useState('');
   const [endYearValue, setEndYearValue] = useState('');
 
-
   const activeFilter = () => {
-    setYearStart(startYearValue);
-    setYearEnd(endYearValue);
+    if(startYearValue  === '') {
+      setYearStart(startYear);
+      setYearEnd(endYearValue);
+    } else if (endYearValue === '') {
+      setYearStart(startYearValue);
+      setYearEnd(currentYear);
+    } else {
+      setYearStart(startYearValue);
+      setYearEnd(endYearValue);
+    }
     setSearchParams(`page=${1}`);
     setPage(1);
   }
@@ -55,6 +62,7 @@ export const DateFilter = () => {
         }
       >
         <Input
+          maxLength={4}
           value={startYearValue}
           onChange={(e) => setStartYearValue(e.target.value)}
           variant="outlined"
