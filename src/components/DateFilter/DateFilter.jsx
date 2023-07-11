@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNASAService } from "../../service/NASAService.js";
 import { Context } from "../../context/Context.jsx";
 import { Button } from "@mui/joy";
@@ -22,6 +22,7 @@ export const DateFilter = () => {
 
   const [startYearValue, setStartYearValue] = useState(null);
   const [endYearValue, setEndYearValue] = useState(null);
+  const [activeFilters, setActiveFilters] = useState(false);
 
   const activeFilter = () => {
     if(startYearValue  === null && endYearValue === null) {
@@ -30,14 +31,16 @@ export const DateFilter = () => {
     } else if (endYearValue === null) {
       setYearStart(startYearValue);
       setYearEnd(currentYear);
+      setActiveFilters(true);
     } else if (startYearValue === null) {
       setYearStart(startYear);
       setYearEnd(endYearValue);
+      setActiveFilters(true);
     } else {
       setYearStart(startYearValue);
       setYearEnd(endYearValue);
+      setActiveFilters(true);
     }
-
     setSearchParams(`page=${1}`);
     setPage(1);
   }
@@ -47,12 +50,20 @@ export const DateFilter = () => {
     setYearEnd(currentYear);
     setSearchParams(`page=${1}`);
     setPage(1);
-    setStartYearValue('');
-    setEndYearValue('');
+    setStartYearValue(null);
+    setEndYearValue(null);
+    setActiveFilters(false);
   }
 
   return (
-    <div className="date-filter">
+    <div
+      className="date-filter"
+      style={
+        {
+          borderColor: `${activeFilters ? "green" : "#096BDE"}`,
+        }
+      }
+      >
       <Button
         className="btn-filter-clear"
         onClick={clearFilter}
@@ -62,7 +73,6 @@ export const DateFilter = () => {
       <div className="date-pickers">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <MobileDatePicker
-            yearsPerRow={3}
             minDate={dayjs('0001')}
             maxDate={dayjs(`${endYearValue ?? currentYear}`)}
             label={"Year start"}
