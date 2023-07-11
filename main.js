@@ -45973,6 +45973,7 @@ const DateFilter = () => {
   } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_Context_jsx__WEBPACK_IMPORTED_MODULE_2__.Context);
   const [startYearValue, setStartYearValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
   const [endYearValue, setEndYearValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
+  const [activeFilters, setActiveFilters] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
   const activeFilter = () => {
     if (startYearValue === null && endYearValue === null) {
       setYearStart(startYear);
@@ -45980,12 +45981,15 @@ const DateFilter = () => {
     } else if (endYearValue === null) {
       setYearStart(startYearValue);
       setYearEnd(currentYear);
+      setActiveFilters(true);
     } else if (startYearValue === null) {
       setYearStart(startYear);
       setYearEnd(endYearValue);
+      setActiveFilters(true);
     } else {
       setYearStart(startYearValue);
       setYearEnd(endYearValue);
+      setActiveFilters(true);
     }
     setSearchParams(`page=${1}`);
     setPage(1);
@@ -45995,11 +45999,15 @@ const DateFilter = () => {
     setYearEnd(currentYear);
     setSearchParams(`page=${1}`);
     setPage(1);
-    setStartYearValue('');
-    setEndYearValue('');
+    setStartYearValue(null);
+    setEndYearValue(null);
+    setActiveFilters(false);
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
-    className: "date-filter"
+    className: "date-filter",
+    style: {
+      borderColor: `${activeFilters ? "green" : "#096BDE"}`
+    }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_joy__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: "btn-filter-clear",
     onClick: clearFilter
@@ -46008,7 +46016,6 @@ const DateFilter = () => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_7__.LocalizationProvider, {
     dateAdapter: _mui_x_date_pickers_AdapterDayjs__WEBPACK_IMPORTED_MODULE_8__.AdapterDayjs
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_x_date_pickers_MobileDatePicker__WEBPACK_IMPORTED_MODULE_9__.MobileDatePicker, {
-    yearsPerRow: 3,
     minDate: dayjs__WEBPACK_IMPORTED_MODULE_3___default()('0001'),
     maxDate: dayjs__WEBPACK_IMPORTED_MODULE_3___default()(`${endYearValue ?? currentYear}`),
     label: "Year start",
