@@ -123,14 +123,9 @@ hr {
   border-radius: 10px;
   border-color: #096BDE;
 }
-.date-filter .date-inputs {
+.date-filter .date-pickers {
   display: flex;
   gap: 10px;
-}
-.date-filter .date-inputs .css-tilzqs-JoyInput-root,
-.date-filter .date-inputs .css-mpifb8-JoyInput-root,
-.date-filter .date-inputs .css-klda7-JoyInput-root {
-  width: 135px;
 }
 .date-filter .btn-filter {
   width: 50px;
@@ -142,29 +137,25 @@ hr {
 .date-filter .css-1yq5fb3-MuiButtonBase-root-MuiIconButton-root {
   color: #fff;
 }
-.date-filter .css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
-  max-width: 130px;
-  border-color: #096BDE;
-}
 
 @media (max-width: 480px) and (min-width: 320px) {
   .date-filter {
     display: grid;
-    grid-template-columns: 185px auto;
+    grid-template-columns: auto auto;
     justify-items: center;
     padding: 10px 5px;
   }
-  .date-filter .date-inputs {
-    grid-column: 1/span 3;
+  .date-filter .date-pickers {
+    grid-column: 1/span 2;
+  }
+  .date-filter .date-pickers .css-1lkpf4l-MuiYearCalendar-root {
+    width: 250px;
   }
   .date-filter .btn-filter-search {
-    grid-column: 1;
-    grid-row: 2;
     width: 25px;
     height: 25px;
   }
   .date-filter .btn-filter-clear {
-    grid-column: 2;
     grid-row: 2;
     width: 25px;
     height: 25px;
@@ -675,4 +666,4 @@ body a {
   color: #fff;
 }
 
-/*# sourceMappingURL=main.6b3f10dc7d1e6b66db68.css.map*/
+/*# sourceMappingURL=main.82e1f893b2c3388835df.css.map*/
