@@ -30815,10 +30815,14 @@ const DateFilter = () => {
   } = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_context_Context_jsx__WEBPACK_IMPORTED_MODULE_2__.Context);
   const [startYearValue, setStartYearValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
   const [endYearValue, setEndYearValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)('');
+  const [startYearError, setStartYearError] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
+  const [endYearError, setEndYearError] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)("");
   const activeFilter = () => {
-    if (startYearValue === '') {
+    setStartYearError("");
+    setEndYearError("");
+    if (startYearValue === '' && endYearValue === '') {
       setYearStart(startYear);
-      setYearEnd(endYearValue);
+      setYearEnd(currentYear);
     } else if (endYearValue === '') {
       setYearStart(startYearValue);
       setYearEnd(currentYear);
@@ -30836,6 +30840,28 @@ const DateFilter = () => {
     setPage(1);
     setStartYearValue('');
     setEndYearValue('');
+    setStartYearError("");
+    setEndYearError("");
+  };
+  const handleStartYearChange = e => {
+    const value = e.target.value;
+    setStartYearValue(value);
+    if (value < 1 || value > currentYear) {
+      setStartYearError("error");
+      setStartYearValue(startYearError);
+    } else {
+      setStartYearError("");
+    }
+  };
+  const handleEndYearChange = e => {
+    const value = e.target.value;
+    setEndYearValue(value);
+    if (value < 1 || value > currentYear) {
+      setEndYearError("error");
+      setEndYearValue(endYearError);
+    } else {
+      setEndYearError("");
+    }
   };
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "date-filter"
@@ -30849,9 +30875,13 @@ const DateFilter = () => {
       gap: "10px"
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_joy__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    helpertext: startYearError,
+    error: startYearError !== "",
+    min: "1",
+    max: currentYear,
     maxLength: 4,
     value: startYearValue,
-    onChange: e => setStartYearValue(e.target.value),
+    onChange: handleStartYearChange,
     variant: "outlined",
     size: "sm",
     placeholder: "Year start",
@@ -30869,8 +30899,13 @@ const DateFilter = () => {
     },
     endDecorator: /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_CalendarMonthOutlined__WEBPACK_IMPORTED_MODULE_7__["default"], null)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_joy__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    helpertext: endYearError,
+    error: endYearError !== "",
+    min: "1",
+    max: currentYear,
+    maxLength: 4,
     value: endYearValue,
-    onChange: e => setEndYearValue(e.target.value),
+    onChange: handleEndYearChange,
     variant: "outlined",
     size: "sm",
     placeholder: "Year end",
