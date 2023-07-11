@@ -20,10 +20,16 @@ export const DateFilter = () => {
   const [startYearValue, setStartYearValue] = useState('');
   const [endYearValue, setEndYearValue] = useState('');
 
+  const [startYearError, setStartYearError] = useState("");
+  const [endYearError, setEndYearError] = useState("");
+
   const activeFilter = () => {
-    if(startYearValue  === '') {
+    setStartYearError("");
+    setEndYearError("");
+
+    if(startYearValue  === '' && endYearValue === '') {
       setYearStart(startYear);
-      setYearEnd(endYearValue);
+      setYearEnd(currentYear);
     } else if (endYearValue === '') {
       setYearStart(startYearValue);
       setYearEnd(currentYear);
@@ -42,7 +48,33 @@ export const DateFilter = () => {
     setPage(1);
     setStartYearValue('');
     setEndYearValue('');
+    setStartYearError("");
+    setEndYearError("");
   }
+
+const handleStartYearChange = (e) => {
+  const value = e.target.value;
+  setStartYearValue(value);
+
+  if (value < 1 || value > currentYear) {
+    setStartYearError("error");
+    setStartYearValue(startYearError);
+  } else {
+    setStartYearError("");
+  }
+};
+
+const handleEndYearChange = (e) => {
+  const value = e.target.value;
+  setEndYearValue(value);
+
+  if (value < 1 || value > currentYear) {
+    setEndYearError("error");
+    setEndYearValue(endYearError);
+  } else {
+    setEndYearError("");
+  }
+};
 
   return (
     <div className="date-filter">
@@ -62,9 +94,13 @@ export const DateFilter = () => {
         }
       >
         <Input
+          helpertext={startYearError}
+          error={startYearError !== ""}
+          min="1"
+          max={currentYear}
           maxLength={4}
           value={startYearValue}
-          onChange={(e) => setStartYearValue(e.target.value)}
+          onChange={handleStartYearChange}
           variant="outlined"
           size="sm"
           placeholder="Year start"
@@ -85,8 +121,13 @@ export const DateFilter = () => {
           endDecorator={<CalendarMonthOutlinedIcon/>}
         />
         <Input
+          helpertext={endYearError}
+          error={endYearError !== ""}
+          min="1"
+          max={currentYear}
+          maxLength={4}
           value={endYearValue}
-          onChange={(e) => setEndYearValue(e.target.value)}
+          onChange={handleEndYearChange}
           variant="outlined"
           size="sm"
           placeholder="Year end"
