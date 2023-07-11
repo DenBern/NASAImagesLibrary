@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNASAService } from "../../service/NASAService.js";
 import { Context } from "../../context/Context.jsx";
 import { Button } from "@mui/joy";
 import DeleteIcon from "@mui/icons-material/Delete";
 import SearchIcon from "@mui/icons-material/Search";
+import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from 'dayjs';
-import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 
 import "./DateFilter.scss";
 
@@ -61,15 +61,15 @@ export const DateFilter = () => {
       </Button>
       <div className="date-pickers">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DesktopDatePicker
-            yearsPerRow={4}
+          <MobileDatePicker
+            yearsPerRow={3}
             minDate={dayjs('0001')}
             maxDate={dayjs(`${endYearValue ?? currentYear}`)}
             label={"Year start"}
             views={['year']}
             onChange={(value) => setStartYearValue(value.$y)}
           />
-          <DesktopDatePicker
+          <MobileDatePicker
             minDate={dayjs(`${startYearValue ?? startYear}`)}
             maxDate={dayjs(`${currentYear}`)}
             label={"Year end"}

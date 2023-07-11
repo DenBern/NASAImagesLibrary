@@ -11,6 +11,10 @@
   .date-pickers {
     display: flex;
     gap: 10px;
+
+    .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+      color: #fff;
+    }
   }
 
   .btn-filter {
