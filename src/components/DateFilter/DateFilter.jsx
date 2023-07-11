@@ -42,14 +42,14 @@ export const DateFilter = () => {
   }
 
   const clearFilter = () => {
+    setStartYearError("");
+    setEndYearError("");
     setYearStart(startYear);
     setYearEnd(currentYear);
     setSearchParams(`page=${1}`);
     setPage(1);
     setStartYearValue('');
     setEndYearValue('');
-    setStartYearError("");
-    setEndYearError("");
   }
 
 const handleStartYearChange = (e) => {
