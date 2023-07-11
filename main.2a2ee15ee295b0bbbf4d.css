@@ -127,6 +127,9 @@ hr {
   display: flex;
   gap: 10px;
 }
+.date-filter .date-pickers .css-1t8l2tu-MuiInputBase-input-MuiOutlinedInput-input {
+  color: #fff;
+}
 .date-filter .btn-filter {
   width: 50px;
   height: 50px;
@@ -666,4 +669,4 @@ body a {
   color: #fff;
 }
 
-/*# sourceMappingURL=main.82e1f893b2c3388835df.css.map*/
+/*# sourceMappingURL=main.2a2ee15ee295b0bbbf4d.css.map*/
