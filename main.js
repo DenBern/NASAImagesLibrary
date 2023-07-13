@@ -46260,6 +46260,9 @@ const Gallery = () => {
     date: item.data[0].date_created,
     id: item.data[0].nasa_id
   }))), totalSearch > pageSize && !errorItems ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_11__["default"], {
+    size: "small",
+    color: "primary",
+    shape: "rounded",
     page: page,
     count: pages,
     onChange: (_, page) => {
