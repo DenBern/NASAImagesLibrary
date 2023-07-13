@@ -46021,7 +46021,7 @@ const DateFilter = () => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_x_date_pickers__WEBPACK_IMPORTED_MODULE_7__.LocalizationProvider, {
     dateAdapter: _mui_x_date_pickers_AdapterDayjs__WEBPACK_IMPORTED_MODULE_8__.AdapterDayjs
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_x_date_pickers_MobileDatePicker__WEBPACK_IMPORTED_MODULE_9__.MobileDatePicker, {
-    minDate: dayjs__WEBPACK_IMPORTED_MODULE_3___default()('0001'),
+    minDate: dayjs__WEBPACK_IMPORTED_MODULE_3___default()(`${startYear}`),
     maxDate: dayjs__WEBPACK_IMPORTED_MODULE_3___default()(`${endYearValue ?? currentYear}`),
     label: "Year start",
     views: ['year'],
