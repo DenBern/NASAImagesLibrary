@@ -98,6 +98,9 @@ export const Gallery = () => {
             {totalSearch > pageSize && !errorItems
                 ?
                     <Pagination
+                        size="small"
+                        color="primary"
+                        shape="rounded"
                         page={page}
                         count={pages}
                         onChange={(_, page) => {
