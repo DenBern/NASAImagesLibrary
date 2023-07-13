@@ -45974,22 +45974,27 @@ const DateFilter = () => {
   const [startYearValue, setStartYearValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
   const [endYearValue, setEndYearValue] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(null);
   const [activeFilters, setActiveFilters] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false);
-  const activeFilter = () => {
-    if (startYearValue === null && endYearValue === null) {
-      setYearStart(startYear);
-      setYearEnd(currentYear);
-    } else if (endYearValue === null) {
-      setYearStart(startYearValue);
-      setYearEnd(currentYear);
-      setActiveFilters(true);
-    } else if (startYearValue === null) {
-      setYearStart(startYear);
-      setYearEnd(endYearValue);
-      setActiveFilters(true);
-    } else {
-      setYearStart(startYearValue);
-      setYearEnd(endYearValue);
-      setActiveFilters(true);
+  const activeFilter = (startYearValue, endYearValue) => {
+    switch (true) {
+      case !startYearValue && !endYearValue:
+        setYearStart(startYear);
+        setYearEnd(currentYear);
+        break;
+      case !endYearValue:
+        setYearStart(startYearValue);
+        setYearEnd(currentYear);
+        setActiveFilters(true);
+        break;
+      case !startYearValue:
+        setYearStart(startYear);
+        setYearEnd(endYearValue);
+        setActiveFilters(true);
+        break;
+      default:
+        setYearStart(startYearValue);
+        setYearEnd(endYearValue);
+        setActiveFilters(true);
+        break;
     }
     setSearchParams(`page=${1}`);
     setPage(1);
@@ -46020,16 +46025,16 @@ const DateFilter = () => {
     maxDate: dayjs__WEBPACK_IMPORTED_MODULE_3___default()(`${endYearValue ?? currentYear}`),
     label: "Year start",
     views: ['year'],
-    onChange: value => setStartYearValue(value.$y)
+    onChange: value => setStartYearValue(!value ? startYear : value.$y)
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_x_date_pickers_MobileDatePicker__WEBPACK_IMPORTED_MODULE_9__.MobileDatePicker, {
     minDate: dayjs__WEBPACK_IMPORTED_MODULE_3___default()(`${startYearValue ?? startYear}`),
     maxDate: dayjs__WEBPACK_IMPORTED_MODULE_3___default()(`${currentYear}`),
     label: "Year end",
     views: ['year'],
-    onChange: value => setEndYearValue(value.$y)
+    onChange: value => setEndYearValue(!value ? currentYear : value.$y)
   }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_joy__WEBPACK_IMPORTED_MODULE_5__["default"], {
     className: "btn-filter-search",
-    onClick: activeFilter
+    onClick: () => activeFilter(startYearValue, endYearValue)
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_icons_material_Search__WEBPACK_IMPORTED_MODULE_10__["default"], null)));
 };
 
@@ -46075,7 +46080,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const EmptyError = props => {
   const {
-    errorItems
+    errorItems,
+    errorMetaData
   } = props;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "empty-wrapper"
@@ -46083,7 +46089,7 @@ const EmptyError = props => {
     className: "empty-image"
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "empty-text"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Ooops !", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Houston, ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "we have a problem!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, !errorItems ? 'Results not found.' : 'Something went wrong. Try again.')));
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, "Ooops !", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "Houston, ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("br", null), "we have a problem!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("p", null, !errorItems && !errorMetaData ? 'Results not found.' : 'Something went wrong. Try again.')));
 };
 
 /***/ }),
@@ -46552,7 +46558,7 @@ const Details = () => {
     className: "wrapper-header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("header", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", {
     className: "title-details"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, !loadingMetaData && metaData ? metaData.title : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("h3", null, !loadingMetaData && metaData ? metaData.title : errorMetaData ? 'Error loading' : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_mui_material__WEBPACK_IMPORTED_MODULE_7__["default"], {
     sx: {
       bgcolor: "#21212194"
     },
@@ -46594,7 +46600,9 @@ const Details = () => {
     dangerouslySetInnerHTML: {
       __html: `<p>${metaData.description}</p>`
     }
-  }))))) : null));
+  }))))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(_EmptyError_EmptyError_jsx__WEBPACK_IMPORTED_MODULE_3__.EmptyError, {
+    errorMetaData: errorMetaData
+  })));
 };
 
 /***/ }),
