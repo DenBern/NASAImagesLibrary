@@ -36,7 +36,6 @@ export const DateFilter = () => {
         setActiveFilters(true);
         break;
       case !startYearValue:
-        console.log('no start')
         setYearStart(startYear);
         setYearEnd(endYearValue);
         setActiveFilters(true);
