@@ -24,22 +24,28 @@ export const DateFilter = () => {
   const [endYearValue, setEndYearValue] = useState(null);
   const [activeFilters, setActiveFilters] = useState(false);
 
-  const activeFilter = () => {
-    if(startYearValue  === null && endYearValue === null) {
-      setYearStart(startYear);
-      setYearEnd(currentYear);
-    } else if (endYearValue === null) {
-      setYearStart(startYearValue);
-      setYearEnd(currentYear);
-      setActiveFilters(true);
-    } else if (startYearValue === null) {
-      setYearStart(startYear);
-      setYearEnd(endYearValue);
-      setActiveFilters(true);
-    } else {
-      setYearStart(startYearValue);
-      setYearEnd(endYearValue);
-      setActiveFilters(true);
+  const activeFilter = (startYearValue, endYearValue) => {
+    switch(true) {
+      case !startYearValue && !endYearValue:
+        setYearStart(startYear);
+        setYearEnd(currentYear);
+        break;
+      case !endYearValue:
+        setYearStart(startYearValue);
+        setYearEnd(currentYear);
+        setActiveFilters(true);
+        break;
+      case !startYearValue:
+        console.log('no start')
+        setYearStart(startYear);
+        setYearEnd(endYearValue);
+        setActiveFilters(true);
+        break;
+      default:
+        setYearStart(startYearValue);
+        setYearEnd(endYearValue);
+        setActiveFilters(true);
+        break;
     }
     setSearchParams(`page=${1}`);
     setPage(1);
@@ -77,20 +83,20 @@ export const DateFilter = () => {
             maxDate={dayjs(`${endYearValue ?? currentYear}`)}
             label={"Year start"}
             views={['year']}
-            onChange={(value) => setStartYearValue(value.$y)}
+            onChange={(value) => setStartYearValue(!value ? startYear : value.$y)}
           />
           <MobileDatePicker
             minDate={dayjs(`${startYearValue ?? startYear}`)}
             maxDate={dayjs(`${currentYear}`)}
             label={"Year end"}
             views={['year']}
-            onChange={(value) => setEndYearValue(value.$y)}
+            onChange={(value) => setEndYearValue(!value ? currentYear : value.$y)}
           />
         </LocalizationProvider>
       </div>
       <Button
         className="btn-filter-search"
-        onClick={activeFilter}
+        onClick={() => activeFilter(startYearValue, endYearValue)}
       >
         <SearchIcon/>
       </Button>

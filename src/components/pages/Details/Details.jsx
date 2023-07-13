@@ -38,6 +38,8 @@ export const Details = () => {
               <h3>
                 {!loadingMetaData && metaData
                   ? metaData.title
+                  : errorMetaData
+                  ? 'Error loading'
                   : <Skeleton
                       sx={{ bgcolor: "#21212194"}}
                       variant="text"
@@ -114,7 +116,7 @@ export const Details = () => {
                   </section>
                 </main>
               )
-              : null
+              : <EmptyError errorMetaData={errorMetaData}/>
           }
         </div>
     </div>

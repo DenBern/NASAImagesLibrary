@@ -3,7 +3,7 @@ import React from "react";
 import './EmptyError.scss';
 
 export const EmptyError = (props) => {
-  const {errorItems} = props;
+  const {errorItems, errorMetaData} = props;
   return (
     <div className="empty-wrapper">
       <div className="empty-image"/>
@@ -14,7 +14,7 @@ export const EmptyError = (props) => {
           we have a problem!
         </h3>
         <p>
-          {!errorItems
+          {!errorItems && !errorMetaData
             ? 'Results not found.'
             : 'Something went wrong. Try again.'
           }
