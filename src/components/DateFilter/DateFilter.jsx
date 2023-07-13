@@ -78,7 +78,7 @@ export const DateFilter = () => {
       <div className="date-pickers">
         <LocalizationProvider dateAdapter={AdapterDayjs}>
           <MobileDatePicker
-            minDate={dayjs('0001')}
+            minDate={dayjs(`${startYear}`)}
             maxDate={dayjs(`${endYearValue ?? currentYear}`)}
             label={"Year start"}
             views={['year']}
