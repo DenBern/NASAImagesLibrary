@@ -4,9 +4,9 @@
 <a href=" https://denbern.github.io/NASAImagesLibrary/"> https://denbern.github.io/NASAImagesLibrary/</a>
 
 ### About app:
-<p>This is test task.</p>
+<p>This is test task using public NASA API for the image collection.</p>
 
-### Description  
+### Task requirements:   
 <p>
   NASA has revealed a public API for the image collection. We would like to explore the content using the client side application.  
 API docs: <a href="https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf" target="_blank">https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf</a>  
