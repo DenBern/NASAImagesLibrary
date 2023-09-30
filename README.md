@@ -15,7 +15,7 @@ Requirements:
 - Make sure the application is usable on mobile devices as well.
 - Provide basic tests for your code.
 - Feel free to style your application as you like.
-- You can use any libraries you like.
+- You can use any libraries you like.     
 Search page requirements:
 - The page must allow users to search the NASA Media Library.
 - The search process must use the /search endpoint (API docs).
