@@ -8,7 +8,7 @@
 
 ### Task requirements:   
 <div align="start">
-  NASA has revealed a public API for the image collection. We would like to explore the content using the client side application.<br>    
+<ul>NASA has revealed a public API for the image collection. We would like to explore the content using the client side application.   
 API docs: <a href="https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf" target="_blank">https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf</a>
 Requirements:
 - Create a React single page application (it’s ok to use CRA).
@@ -36,4 +36,5 @@ name, description, keywords, date, and images from the collection.
 - Choose unique images from the collection, regardless of version. Most collections only
 have one image. Decide which version suits your preferences.
 - There should be a back button that takes you back to the search results page.
+</ul>
 </div>
