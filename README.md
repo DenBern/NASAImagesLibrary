@@ -5,8 +5,8 @@
 
 ### Description  
 <p>
-  NASA has revealed a public API for the image collection. We would like to explore the content using the client side application.
-API docs: https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf
+  NASA has revealed a public API for the image collection. We would like to explore the content using the client side application.  
+API docs: <a href="https://images.nasa.gov/docs/images.nasa.gov_api_docs.pdf" target="_blank">
 Requirements:
 - Create a React single page application (it’s ok to use CRA).
 - The application should consist of 2 pages: search and show (requirements below).
