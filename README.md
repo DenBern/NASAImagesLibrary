@@ -1,7 +1,7 @@
 ### NASAImagesLibraryApp
 
 ### Deploy:
-<a href="https://denbern.github.io/NASAImagesLibrary/">https://denbern.github.io/NASAImagesLibrary/</a>
+<a href="https://denbern.github.io/NASAImagesLibrary/" target="_blank">https://denbern.github.io/NASAImagesLibrary/</a>
 
 ### About app:
 <p>This is test task using public NASA API for the image collection.</p>
